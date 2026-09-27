@@ -3,10 +3,10 @@ title: Rose Petal Bridal Suite
 year: 2026
 category: bridal
 tags: [bridal, floral, necklace set]
-cover: ../../assets/final-designs/rose-petal-suite.png
-editorial: ../../assets/editorial/final/final-rose-petal-suite-worn-geometry-v2.png
+cover: ../../assets/final-designs/rose-petal-suite-yellow-gold-blush-diamond.png
+editorial: ../../assets/editorial/final/final-rose-petal-suite-model-retouched-detail.png
 gallery:
-  - ../../assets/editorial/final/final-rose-petal-suite-detail-geometry-v2.png
+  - ../../assets/editorial/final/final-rose-petal-suite-jewellery-box-detail.png
 summary: A blush-petal bridal necklace and earring suite developed as a soft, layered statement.
 metal: Gold
 stones: Blush-pink morganite, white diamonds and yellow gold
