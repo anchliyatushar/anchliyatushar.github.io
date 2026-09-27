@@ -57,7 +57,7 @@ const archive = [
             <ProjectCard
               href={`/work/${project.id}/`}
               title={project.data.title}
-              category={project.data.category}
+              category={project.data.category === 'kada' ? "Men's open kada" : project.data.category}
               metal={project.data.metal}
               image={project.data.editorial}
               alt={`${project.data.title} worn by a model`}

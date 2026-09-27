@@ -117,8 +117,9 @@ const services = [
   .download-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: 1.75rem;
+    align-items: center;
+    gap: 0.9rem;
+    margin-top: 2rem;
   }
 
   .download-actions .btn {
@@ -126,6 +127,16 @@ const services = [
     font-size: 0.68rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+  }
+
+  @media (max-width: 640px) {
+    .download-actions {
+      align-items: stretch;
+    }
+
+    .download-actions .btn {
+      width: 100%;
+    }
   }
 
   .side {

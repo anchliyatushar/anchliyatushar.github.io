@@ -210,9 +210,9 @@ PROJECTS = [
     },
     {
         "number": "03",
-        "title": "Sculptural Serpent Bangle",
-        "type": "BANGLE / 2026",
-        "summary": "A twin-serpent gold bangle with a fluid curve and concentrated red-eye details.",
+        "title": "Sculptural Serpent Kada",
+        "type": "MEN'S OPEN KADA / 2026",
+        "summary": "A twin-serpent gold kada with a fluid curve and concentrated red-eye details.",
         "metal": "Gold",
         "stones": "Red accent stones",
         "hero": "src/assets/editorial/final/final-serpent-bangle-mens-wrist.png",
