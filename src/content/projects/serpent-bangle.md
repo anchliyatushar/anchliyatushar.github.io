@@ -1,17 +1,16 @@
 ---
 title: Sculptural Serpent Bangle
 year: 2026
-category: sets
+category: bangle
 tags: [bangle, serpent, sculptural]
 cover: ../../assets/final-designs/serpent-bangle.png
 editorial: ../../assets/editorial/final/final-serpent-bangle-mens-wrist.png
 gallery:
   - ../../assets/editorial/final/final-serpent-bangle-mens-detail-extreme-macro-left.png
-summary: A twin-serpent bangle concept with a clean gold curve and a concentrated red-eyed focal point.
+summary: A twin-serpent gold bangle with a fluid curve and concentrated red-eye details.
 metal: Gold
 stones: Red accent stones
-weight: Design study
-tools: [Rhino, MatrixGold, Matrix 9]
+tools: [Rhino 3D, Matrix 9, MatrixGold]
 featured: true
 orientation: portrait
 problem: Make a double-headed form feel resolved from every wrist angle rather than decorative from only one view.
@@ -19,4 +18,4 @@ approach: The body of the bangle was treated as a continuous curve, allowing the
 outcome: A compact statement bangle with a recognisable profile, clear surface rhythm and a vivid detail at each end.
 ---
 
-This bangle direction investigates a mirrored serpent gesture. Its imagery moves from the full wrist composition to a tighter product study, making the paired heads and gold contour readable at once.
+This bangle explores a mirrored serpent gesture. The worn wrist view and macro detail make the paired heads, red-eye accents and gold contour easy to read.

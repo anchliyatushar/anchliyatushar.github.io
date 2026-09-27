@@ -27,29 +27,29 @@ const selectedWork = (await getCollection('projects')).sort(
 );
 
 const archive = [
-  { title: 'Blue Baguette Band', category: 'Rings', metal: 'Rose gold', image: blueBaguetteBand, alt: 'Rose-gold diamond baguette band worn by a male model' },
-  { title: 'Blue Floral Suite', category: 'Sets', metal: 'Silver', image: blueFloralSuite, alt: 'Silver floral diamond necklace and earrings with sapphire center stones, worn on a model' },
+  { title: 'Baguette Diamond Band', category: 'Ring', metal: 'Rose gold', image: blueBaguetteBand, alt: 'Rose-gold diamond baguette band worn by a male model' },
+  { title: 'Sapphire Floral Suite', category: 'Necklace & earrings', metal: 'Silver', image: blueFloralSuite, alt: 'Silver floral diamond necklace and earrings with sapphire centre stones, worn on a model' },
   { title: 'Silver Serpent Bracelet', category: 'Bracelet', metal: 'Silver', image: silverSerpentBracelet, alt: 'Silver serpent bracelet worn on a model' },
   { title: 'Geometric Bracelet', category: 'Bracelet', metal: 'Rose gold', image: geometricBracelet, alt: 'Geometric bracelet worn on a model' },
   { title: 'Aqua Drop Earrings', category: 'Earrings', metal: 'Gold', image: aquaDropEarrings, alt: 'Aqua drop earrings worn on a model' },
   { title: 'Petal Pearl Earrings', category: 'Earrings', metal: 'Gold', image: petalPearlEarrings, alt: 'Petal pearl earrings worn on a model' },
-  { title: 'Diamond Line Suite', category: 'Sets', metal: 'Gold', image: diamondLineSuite, alt: 'Diamond necklace and earrings worn on a model' },
-  { title: 'Emerald Pendant Suite', category: 'Sets', metal: 'Gold', image: emeraldPendantSuite, alt: 'Emerald pendant necklace and earrings worn on a model' },
+  { title: 'Diamond Line Suite', category: 'Necklace & earrings', metal: 'Gold', image: diamondLineSuite, alt: 'Diamond necklace and earrings worn on a model' },
+  { title: 'Emerald Pendant Suite', category: 'Necklace & earrings', metal: 'Gold', image: emeraldPendantSuite, alt: 'Emerald pendant necklace and earrings worn on a model' },
   { title: 'Minimal Diamond Pendant', category: 'Necklace', metal: 'Gold', image: minimalDiamondPendant, alt: 'Minimal diamond pendant worn on a model' },
   { title: 'Architectural Halo Ring', category: 'Rings', metal: 'Gold', image: architecturalHaloRing, alt: 'Gold architectural halo ring with an emerald center and diamond halo, worn on a model' },
 ];
 ---
 
 <BaseLayout
-  title="Selected Work — Disha Jain"
-  description="Jewellery CAD portfolio by Disha Jain, presented through monochrome on-model editorials with selective colour jewellery."
+  title="Jewellery Portfolio — Disha Jain"
+  description="Jewellery CAD portfolio by Disha Jain, featuring six in-depth case studies and ten additional jewellery designs."
 >
   <section class="section selected-section">
     <div class="container">
       <div class="section-head archive-head reveal">
-        <p class="eyebrow">[ Selected work / 2026 ]</p>
-        <h1>Selected<br /><em>work.</em></h1>
-        <p>Six finished directions shown first through generated on-model editorial studies. The jewellery stays in focus; the references stay behind the scenes.</p>
+        <p class="eyebrow">[ Jewellery portfolio / 2026 ]</p>
+        <h1>Featured<br /><em>jewellery.</em></h1>
+        <p>Six case studies that show each piece on the body and in close detail, alongside the decisions that shaped its form.</p>
       </div>
       <div class="project-grid">
         {
@@ -73,14 +73,14 @@ const archive = [
   <section class="section archive-section">
     <div class="container">
       <div class="section-head archive-head archive-copy reveal">
-        <p class="eyebrow">[ Complete archive / 10 further studies ]</p>
-        <h2>All <em>directions.</em></h2>
-        <p>Every remaining design supplied in the final folder, reimagined as a matching on-model editorial. These are archive studies, presented without source renders or reference imagery.</p>
+        <p class="eyebrow">[ Additional designs / 10 pieces ]</p>
+        <h2>More <em>jewellery.</em></h2>
+        <p>Ten further pieces across rings, necklaces, bracelets, earrings and coordinated sets. Each is presented for an immediate read of form, scale and material.</p>
       </div>
       <div class="project-grid">
         {
           archive.map((project, index) => (
-            <ProjectCard {...project} index={selectedWork.length + index} />
+            <ProjectCard {...project} index={selectedWork.length + index} headingLevel={3} />
           ))
         }
       </div>

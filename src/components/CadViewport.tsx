@@ -27,7 +27,7 @@ export default function CadViewport() {
       onPointerMove={handlePointerMove}
       onPointerLeave={() => setRotation({ x: 0, y: 0 })}
       style={style}
-      aria-label="Interactive CAD ring model"
+      aria-label="Interactive 3D CAD ring model"
       role="img"
     >
       <div className="cad-floor" />
@@ -48,11 +48,11 @@ export default function CadViewport() {
             <g className="ring-body" filter="url(#glow)"><ellipse cx="300" cy="354" rx="144" ry="137" stroke="url(#goldSurface)" strokeWidth="34"/><ellipse cx="300" cy="354" rx="144" ry="137" stroke="url(#goldLine)" strokeWidth="3" opacity=".9"/><path d="M166 360C191 408 242 440 300 440C358 440 409 408 434 360" stroke="#FFEBA5" strokeWidth="2" opacity=".72"/><path d="M168 334C189 281 236 266 300 266C364 266 411 281 432 334" stroke="#76450A" strokeWidth="4" opacity=".86"/></g>
             <g className="crown"><path d="M213 255L235 161L273 194L300 132L327 194L365 161L387 255" fill="url(#goldSurface)" stroke="#FCE191" strokeWidth="2"/><path d="M213 255H387L356 307H244L213 255Z" fill="#9C6619" stroke="#F9DA7B" strokeWidth="2"/><path d="M244 307H356L331 333H269L244 307Z" fill="#744608"/><circle cx="300" cy="228" r="67" fill="url(#stone)" stroke="#FFF1B7" strokeWidth="8"/><path d="M254 182L300 228L346 182M238 228H362M254 274L300 228L346 274" stroke="#FFFFFF" strokeWidth="1.5" opacity=".82"/><circle cx="300" cy="228" r="16" fill="#FFFDF4" opacity=".9"/><g fill="#F8D36D" stroke="#805011" strokeWidth="2"><circle cx="221" cy="227" r="12"/><circle cx="247" cy="160" r="12"/><circle cx="300" cy="139" r="12"/><circle cx="353" cy="160" r="12"/><circle cx="379" cy="227" r="12"/></g></g>
             <g className="cad-dimensions" stroke="#B8E6FA" strokeWidth="1.3" opacity=".95"><path d="M137 465V514H463V465M137 495H463"/><path d="M137 495L148 489M137 495L148 501M463 495L452 489M463 495L452 501"/><path d="M453 176H498V343H453M478 176V343"/><path d="M478 176L472 187M478 176L484 187M478 343L472 332M478 343L484 332"/></g>
-            <g className="cad-labels" fill="#E2F3FA"><text x="264" y="538">Ø 18.2 mm</text><text x="487" y="262" transform="rotate(90 487 262)">6.4 mm</text><text x="75" y="98">RING_001</text><text x="75" y="116">WIP / V12</text></g>
+            <g className="cad-labels" fill="#E2F3FA"><text x="264" y="538">Ø 18.2 mm</text><text x="487" y="262" transform="rotate(90 487 262)">6.4 mm</text><text x="75" y="98">CONCEPT_RING</text><text x="75" y="116">VIEWPORT / 01</text></g>
           </svg>
         </div>
       </div>
-      <span className="view-label view-label-top">Perspective</span><span className="view-label view-label-bottom">Live model / rotate</span>
+      <span className="view-label view-label-top">Perspective</span><span className="view-label view-label-bottom">Drag to rotate</span>
     </div>
   );
 }

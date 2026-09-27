@@ -2,110 +2,125 @@
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CadViewport from '../components/CadViewport';
-import stoneChoker from '../assets/editorial/final/final-stone-choker-worn.png';
-import pantherBloom from '../assets/editorial/final/final-panther-bloom-male-natural-scale.png';
-import serpentBangle from '../assets/editorial/final/final-serpent-bangle-mens-wrist.png';
+import stoneChokerDetail from '../assets/editorial/final/final-stone-choker-detail.png';
+import pantherBloomDetail from '../assets/editorial/final/final-panther-bloom-male-detail.png';
+import serpentBangleDetail from '../assets/editorial/final/final-serpent-bangle-mens-detail-extreme-macro-left.png';
 import rosePetalSuite from '../assets/editorial/final/final-rose-petal-suite-model-retouched-detail.png';
-import blueHaloRing from '../assets/editorial/final/final-ruby-halo-ring-worn.png';
-import emeraldTipBracelet from '../assets/editorial/final/final-emerald-tip-bracelet-worn.png';
+import blueHaloRingDetail from '../assets/editorial/final/final-ruby-halo-ring-detail-ruby.png';
+import emeraldTipBraceletDetail from '../assets/editorial/final/final-emerald-tip-bracelet-detail.png';
 
 const projects = [
   {
-    id: '01', image: stoneChoker, type: 'Emerald choker / CAD direction',
+    id: '01', spotlight: stoneChokerDetail, spotlightAlt: 'Emerald Stone Choker detail', type: 'Emerald Stone Choker · Necklace',
     title: 'Colour held close to the collarbone.',
     href: '/work/stone-choker/', position: '50% 50%',
   },
   {
-    id: '02', image: pantherBloom, type: 'Statement brooch / CAD direction',
+    id: '02', spotlight: pantherBloomDetail, spotlightAlt: 'Panther Bloom Brooch detail', type: 'Panther Bloom Brooch · Statement brooch',
     title: 'Wild form. Precise detail.',
     href: '/work/panther-bloom/', position: '50% 50%',
   },
   {
-    id: '03', image: serpentBangle, type: 'Serpent bangle / CAD direction',
+    id: '03', spotlight: serpentBangleDetail, spotlightAlt: 'Sculptural Serpent Bangle detail', type: 'Sculptural Serpent Bangle · Bangle',
     title: 'Two profiles. One gesture.',
     href: '/work/serpent-bangle/', position: '50% 50%',
   },
   {
-    id: '04', image: rosePetalSuite, type: 'Bridal suite / CAD direction',
+    id: '04', spotlight: rosePetalSuite, spotlightAlt: 'Rose Petal Bridal Suite worn on a model', type: 'Rose Petal Bridal Suite · Necklace and earrings',
     title: 'A floral rhythm in blush.',
     href: '/work/rose-petal-suite/', position: '50% 50%',
   },
   {
-    id: '05', image: blueHaloRing, type: 'Halo ring / CAD direction',
+    id: '05', spotlight: blueHaloRingDetail, spotlightAlt: 'Ruby Halo Ring detail', type: 'Ruby Halo Ring · Ring',
     title: 'Built around a ruby centre.',
     href: '/work/blue-halo-ring/', position: '50% 50%',
   },
   {
-    id: '06', image: emeraldTipBracelet, type: 'Fine bracelet / CAD direction',
+    id: '06', spotlight: emeraldTipBraceletDetail, spotlightAlt: 'Emerald Tip Bracelet detail', type: 'Emerald Tip Bracelet · Open bracelet',
     title: 'A quiet line with green at each end.',
     href: '/work/emerald-tip-bracelet/', position: '50% 50%',
   },
 ];
 
 const capabilities = [
-  ['01', 'Interpret', 'Sketches, references, stones and specifications become a clear digital direction.'],
-  ['02', 'Model', 'Rhino, Matrix 9 and MatrixGold workflows turn concept into a complete 3D object.'],
-  ['03', 'Refine', 'Seats, walls, joinery and proportions are considered for production from the start.'],
-  ['04', 'Visualise', 'Renders and AI-assisted exploration make the object legible before it becomes metal.'],
+  ['01', 'Interpret', 'Sketches, stone plans and references become a clear CAD brief.'],
+  ['02', 'Model', 'Rhino, Matrix 9 and MatrixGold turn the concept into accurate 3D geometry.'],
+  ['03', 'Refine', 'Proportion, stone settings, wall thickness and joins are resolved with wearability and manufacture in mind.'],
+  ['04', 'Visualise', 'On-body and close-detail imagery makes scale, material and craftsmanship easy to judge.'],
 ];
 ---
 
-<BaseLayout title="Disha Jain - Jewellery CAD Designer" description="Jewellery CAD portfolio of Disha Jain - CAD designer, faculty and technical consultant working across 3D modelling, rendering and production-ready jewellery.">
+<BaseLayout title="Disha Jain — Jewellery CAD Designer" description="Jewellery CAD portfolio of Disha Jain, specialising in 3D modelling, visualisation and production-aware jewellery development.">
   <section class="hero" data-hero>
     <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="kicker"><span class="status-dot"></span> Jewellery CAD designer / Bangalore, India</p>
-        <h1>Objects with<br /><em>intention.</em></h1>
-        <p class="hero-intro">Jewellery design that moves from a line on paper to a resolved, buildable object - with craft, clarity and a technical eye.</p>
+        <p class="kicker"><span class="status-dot"></span> Jewellery CAD designer · Bangalore, India</p>
+        <h1>Jewellery,<br /><em>made build-ready.</em></h1>
+        <p class="hero-intro">From sketch and stone plan to a considered 3D model—resolved for proportion, wearability and craft.</p>
         <div class="hero-actions">
-          <a href="#selected-work" class="button button-gold">Explore selected work <span aria-hidden="true">↓</span></a>
+          <a href="#featured-projects" class="button button-gold">Explore the portfolio <span aria-hidden="true">↓</span></a>
           <a href="/contact/" class="text-link">Start a project <span aria-hidden="true">↗</span></a>
         </div>
       </div>
 
       <div class="hero-viewport">
         <CadViewport client:load />
-        <div class="hero-metric metric-top"><span>Model state</span><strong>RESOLVED</strong></div>
-        <div class="hero-metric metric-bottom"><span>Viewport</span><strong>01 / 01</strong></div>
+        <div class="hero-metric metric-top"><span>Model view</span><strong>CAD CONCEPT</strong></div>
+        <div class="hero-metric metric-bottom"><span>Interaction</span><strong>DRAG TO ROTATE</strong></div>
       </div>
     </div>
-    <div class="hero-bottom container"><p>Scroll to navigate the practice</p><div class="hero-rule"><span></span></div><p>2026 / Portfolio</p></div>
+    <div class="hero-bottom container"><p>Scroll to explore</p><div class="hero-rule"><span></span></div><p>Jewellery portfolio</p></div>
   </section>
 
   <section class="statement section">
     <div class="container statement-grid">
-      <p class="section-label">[ What I do ]</p>
+      <p class="section-label">[ About Disha ]</p>
       <div class="statement-copy reveal">
-        <p class="statement-large">A digital jewellery practice where <em>emotion meets exactness.</em></p>
-        <p>Disha Jain is a jewellery CAD designer, faculty member and technical consultant with 3.5 years of experience in 3D modelling, rendering, production support and design education. Every project makes room for both the story and the structure.</p>
+        <p class="statement-large">Creative intent.<br /><em>Production precision.</em></p>
+        <p>Disha Jain is a jewellery CAD designer, educator and technical consultant with 3.5 years of experience in 3D modelling, visualisation and production support. Her process turns sketches and specifications into precise jewellery models made with manufacture in mind.</p>
       </div>
     </div>
   </section>
 
   <section class="capabilities section" aria-labelledby="capability-heading">
     <div class="container">
-      <div class="section-heading reveal"><p class="section-label">[ Process / 01-04 ]</p><h2 id="capability-heading">From thought to<br /><em>thing.</em></h2></div>
+      <div class="section-heading reveal">
+        <p class="section-label">[ Process / 01—04 ]</p>
+        <h2 id="capability-heading">From brief to<br /><em>build-ready.</em></h2>
+      </div>
       <div class="capability-grid">
         {capabilities.map(([number, title, body], index) => (
           <article class:list={['capability', 'reveal', `reveal-delay-${(index % 3) + 1}`]}>
-            <span class="capability-number">{number}</span><h3>{title}</h3><p>{body}</p><span class="capability-arrow" aria-hidden="true">↘</span>
+            <span class="capability-number">{number}</span><h3>{title}</h3><p>{body}</p>
           </article>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="work-intro" id="selected-work">
-    <div class="container work-intro-grid"><p class="section-label">[ Selected objects ]</p><div><h2>Made in<br /><em>dimensions.</em></h2><p>Scroll through six new jewellery directions, each shaped around a distinct silhouette, stone story and wearable point of view.</p></div><span class="work-count">06 STUDIES</span></div>
+  <section class="work-intro" id="featured-projects">
+    <div class="container work-intro-grid">
+      <p class="section-label">[ Portfolio highlights ]</p>
+      <div class="work-intro-copy">
+        <h2>Featured<br /><em>projects.</em></h2>
+        <p>Explore six jewellery case studies through the concept, 3D construction choices, materials and final worn and close-detail views.</p>
+        <span class="work-count">06 CASE STUDIES</span>
+      </div>
+    </div>
   </section>
 
-  <div class="project-journey" aria-label="Selected jewellery CAD projects">
+  <div class="project-journey" aria-label="Featured jewellery case studies">
     {projects.map((project, index) => (
-      <section class="project-chapter" data-project-chapter aria-labelledby={`project-${project.id}`}>
+      <section
+        class:list={['project-chapter', { 'image-left': index % 2 === 1 }]}
+        data-project-chapter
+        aria-labelledby={`project-${project.id}`}
+      >
         <div class="project-stage">
-          <div class="project-render"><Image src={project.image} alt={`${project.type}: ${project.title}`} widths={[640, 960, 1280, 1600]} sizes="100vw" loading={index === 0 ? 'eager' : 'lazy'} style={`object-position:${project.position}`} /></div>
-          <div class="project-grid-overlay" aria-hidden="true"></div><div class="project-shade" aria-hidden="true"></div>
-          <div class="container project-content">
+          <div class="project-render">
+            <Image src={project.spotlight} alt={project.spotlightAlt} widths={[640, 960, 1280, 1600]} sizes="(min-width: 780px) 64vw, 100vw" loading={index === 0 ? 'eager' : 'lazy'} style={`object-position:${project.position}`} />
+          </div>
+          <div class="project-content">
             <div class="project-index"><span>{project.id}</span><i></i><span>{String(projects.length).padStart(2, '0')}</span></div>
             <div class="project-copy">
               <p class="project-type">{project.type}</p><h2 id={`project-${project.id}`}>{project.title}</h2>
@@ -118,10 +133,10 @@ const capabilities = [
   </div>
 
   <section class="tools-section section">
-    <div class="container tools-grid"><p class="section-label">[ Toolkit ]</p><div class="tools-content reveal"><h2>Digital craft.<br /><em>Real-world readiness.</em></h2><div class="tool-list"><span>Rhino</span><span>Matrix 9</span><span>MatrixGold</span><span>Jewellery rendering</span><span>3D printing</span><span>AI-assisted visualisation</span></div></div></div>
+    <div class="container tools-grid"><p class="section-label">[ Methods and tools ]</p><div class="tools-content reveal"><h2>Digital modelling.<br /><em>Jewellery thinking.</em></h2><div class="tool-list"><span>Rhino 3D</span><span>Matrix 9</span><span>MatrixGold</span><span>Jewellery visualisation</span><span>3D printing</span><span>AI-assisted visual development</span></div></div></div>
   </section>
 
-  <section class="contact-cta"><div class="container contact-cta-inner reveal"><p class="section-label">[ Available for selected work ]</p><h2>Have an object<br />in <em>mind?</em></h2><a href="/contact/" class="contact-round-link" aria-label="Contact Disha Jain"><span>LET'S<br />TALK</span><b aria-hidden="true">↗</b></a></div></section>
+  <section class="contact-cta"><div class="container contact-cta-inner reveal"><p class="section-label">[ Available for jewellery projects ]</p><h2>Have a piece<br />in <em>mind?</em></h2><a href="/contact/" class="contact-round-link" aria-label="Contact Disha Jain"><span>LET'S<br />TALK</span><b aria-hidden="true">↗</b></a></div></section>
 </BaseLayout>
 
 <style>
@@ -138,13 +153,24 @@ const capabilities = [
   .hero-viewport { position: relative; justify-self: center; width: min(100%, 39rem); transform: translateZ(0); }.hero-metric { position: absolute; z-index: 9; display: grid; gap: .18rem; padding: .6rem .75rem; border: 1px solid rgba(207, 239, 246, .2); background: rgba(4, 7, 8, .72); backdrop-filter: blur(10px); font: 500 .56rem/1.25 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }.hero-metric span { color: var(--muted); }.hero-metric strong { color: var(--blue-pale); font-weight: 600; }.metric-top { top: 8%; right: -4%; }.metric-bottom { bottom: 9%; left: -4%; }
   .hero-bottom { display: flex; align-items: center; gap: 1rem; color: var(--muted); font: 500 .58rem/1 var(--font-mono); letter-spacing: .13em; text-transform: uppercase; }.hero-rule { position: relative; flex: 1; height: 1px; background: var(--line); overflow: hidden; }.hero-rule span { display: block; width: 25%; height: 100%; background: var(--gold); animation: scan 4s ease-in-out infinite; }@keyframes scan { 50% { transform: translateX(280%); } }
   .statement { border-top: 1px solid var(--line); padding-block: clamp(6rem, 13vw, 12rem); }.statement-grid, .tools-grid { display: grid; gap: 2rem; }.statement-copy { max-width: 58rem; }.statement-large { max-width: 13ch; font-family: var(--font-display); font-size: clamp(2.6rem, 5.3vw, 5.5rem); font-weight: 540; letter-spacing: -.065em; line-height: .96; }.statement-copy > p:last-child { max-width: 37rem; margin-top: 2rem; color: var(--muted); font-size: 1.05rem; }
-  .capabilities { padding-top: 0; }.section-heading { display: flex; justify-content: space-between; gap: 2rem; align-items: end; margin-bottom: 2rem; }.section-heading h2, .work-intro h2, .tools-content h2, .contact-cta h2 { font-size: clamp(3rem, 6vw, 6.25rem); font-weight: 530; letter-spacing: -.07em; line-height: .9; }.capability-grid { display: grid; border-top: 1px solid var(--line); }.capability { position: relative; min-height: 17rem; padding: 1.2rem; border-bottom: 1px solid var(--line); overflow: hidden; transition: background-color .35s var(--ease), color .35s var(--ease); }.capability::before { content: ''; position: absolute; inset: auto 0 0; height: 0; background: var(--gold); transition: height .35s var(--ease); }.capability:hover { color: #0a0a08; }.capability:hover::before { height: 100%; }.capability > * { position: relative; z-index: 1; }.capability-number { color: var(--gold); font: 500 .64rem/1 var(--font-mono); letter-spacing: .1em; }.capability h3 { margin-top: clamp(3rem, 6vw, 6.5rem); font-size: clamp(1.6rem, 2.2vw, 2.25rem); font-weight: 550; letter-spacing: -.05em; }.capability p { max-width: 24rem; margin-top: .8rem; color: var(--muted); font-size: .93rem; transition: color .35s var(--ease); }.capability:hover p, .capability:hover .capability-number { color: #3b2c0b; }.capability-arrow { position: absolute; right: 1.2rem; bottom: 1.15rem; font-size: 1.4rem; }
-  .work-intro { padding: clamp(7rem, 15vw, 13rem) 0 clamp(3rem, 5vw, 5rem); background: var(--surface); border-top: 1px solid var(--line); }.work-intro-grid { display: grid; gap: 2rem; }.work-intro h2 { margin-bottom: 1.3rem; }.work-intro p:not(.section-label) { max-width: 31rem; color: var(--muted); }.work-count { align-self: end; color: var(--gold); font: 600 .65rem/1 var(--font-mono); letter-spacing: .14em; }
-  .project-chapter { height: 175svh; position: relative; --chapter-progress: 0; }.project-stage { position: sticky; top: var(--header-h); height: calc(100svh - var(--header-h)); overflow: hidden; background: #050504; isolation: isolate; }.project-render, .project-grid-overlay, .project-shade { position: absolute; inset: 0; }.project-render { transform: scale(calc(1.08 - var(--chapter-progress) * .08)); }.project-render :global(img) { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: contrast(1.12) saturate(1.06); }.project-grid-overlay { z-index: 1; opacity: .26; background-image: linear-gradient(rgba(223, 242, 244, .23) 1px, transparent 1px), linear-gradient(90deg, rgba(223, 242, 244, .23) 1px, transparent 1px); background-size: clamp(3rem, 7vw, 7rem) clamp(3rem, 7vw, 7rem); mask-image: linear-gradient(90deg, black, transparent 75%); transform: perspective(800px) rotateY(9deg) scale(1.2); transform-origin: left; }.project-shade { z-index: 2; background: linear-gradient(90deg, rgba(3,5,5,.94) 0%, rgba(3,5,5,.62) 38%, rgba(3,5,5,.08) 72%), linear-gradient(0deg, rgba(3,5,5,.67), transparent 55%); }.project-content { position: relative; z-index: 4; display: grid; align-content: end; height: 100%; padding-bottom: clamp(4.5rem, 10vh, 7.5rem); }.project-index { display: flex; align-items: center; gap: .6rem; margin-bottom: 2rem; font: 500 .65rem/1 var(--font-mono); letter-spacing: .12em; color: var(--gold); }.project-index i { width: 3.5rem; height: 1px; background: var(--gold); }.project-copy { max-width: 40rem; transform: translateY(calc((1 - var(--chapter-progress)) * 2.2rem)); opacity: calc(.72 + var(--chapter-progress) * .28); }.project-type { margin-bottom: .85rem; color: var(--blue-pale); }.project-copy h2 { max-width: 10ch; font-size: clamp(2.8rem, 5.6vw, 6.7rem); font-weight: 540; letter-spacing: -.07em; line-height: .9; }.project-body { max-width: 32rem; margin-top: 1.4rem; color: var(--text); font-size: clamp(.97rem, 1.3vw, 1.1rem); }.project-facts { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; padding: 0; margin: 1.3rem 0 1.8rem; list-style: none; color: var(--muted); font: 500 .62rem/1.4 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }.project-facts li::before { content: '•'; color: var(--gold); margin-right: .5rem; }.button-outline { color: var(--text); border: 1px solid rgba(237, 217, 156, .55); background: rgba(4,4,3,.25); backdrop-filter: blur(6px); }.button-outline:hover { color: #0a0a08; border-color: var(--gold); background: var(--gold); }.project-corner { position: absolute; z-index: 5; bottom: 1.3rem; color: rgba(232, 240, 240, .55); font: 500 .55rem/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }.project-corner-left { left: var(--pad-x); }.project-corner-right { right: var(--pad-x); }
+  .capabilities { padding-top: 0; }.section-heading { display: grid; gap: 2rem; align-items: start; margin-bottom: 2rem; }.section-heading h2, .work-intro h2, .tools-content h2, .contact-cta h2 { font-size: clamp(3rem, 6vw, 6.25rem); font-weight: 530; letter-spacing: -.07em; line-height: .9; }.capability-grid { display: grid; border-top: 1px solid var(--line); }.capability { position: relative; min-height: 17rem; padding: 1.2rem; border-bottom: 1px solid var(--line); overflow: hidden; transition: background-color .35s var(--ease), color .35s var(--ease); }.capability::before { content: ''; position: absolute; inset: auto 0 0; height: 0; background: var(--gold); transition: height .35s var(--ease); }.capability:hover { color: #0a0a08; }.capability:hover::before { height: 100%; }.capability > * { position: relative; z-index: 1; }.capability-number { color: var(--gold); font: 500 .64rem/1 var(--font-mono); letter-spacing: .1em; }.capability h3 { margin-top: clamp(3rem, 6vw, 6.5rem); font-size: clamp(1.6rem, 2.2vw, 2.25rem); font-weight: 550; letter-spacing: -.05em; }.capability p { max-width: 24rem; margin-top: .8rem; color: var(--muted); font-size: .93rem; transition: color .35s var(--ease); }.capability:hover p, .capability:hover .capability-number { color: #3b2c0b; }
+  .work-intro { padding: clamp(5.5rem, 10vw, 8.5rem) 0 clamp(2.5rem, 4vw, 4rem); background: var(--surface); border-top: 1px solid var(--line); }.work-intro-grid { display: grid; gap: 2rem; align-items: start; }.work-intro h2 { max-width: 12ch; margin-bottom: 1.3rem; }.work-intro-copy > p { max-width: 34rem; color: var(--muted); }.work-count { display: inline-flex; margin-top: 1.5rem; color: var(--gold); font: 600 .65rem/1 var(--font-mono); letter-spacing: .14em; white-space: nowrap; }
+  .project-chapter { height: 125svh; position: relative; --chapter-progress: 0; }
+  .project-stage { position: sticky; top: var(--header-h); display: grid; grid-template-columns: minmax(20rem, .66fr) minmax(0, 1.34fr); height: calc(100svh - var(--header-h)); overflow: hidden; background: #050504; isolation: isolate; }
+  .project-render { grid-column: 2; grid-row: 1; overflow: hidden; background: #101211; }
+  .project-render :global(img) { width: 100%; height: 100%; object-fit: cover; object-position: center; transform: scale(calc(1.035 - var(--chapter-progress) * .035)); transition: transform .3s var(--ease); }
+  .project-content { z-index: 1; display: flex; grid-column: 1; grid-row: 1; flex-direction: column; justify-content: space-between; min-width: 0; padding: clamp(2rem, 4.25vw, 4.5rem) clamp(1.5rem, 3.5vw, 4rem); background: #070908; }
+  .project-index { display: flex; align-items: center; gap: .6rem; font: 500 .65rem/1 var(--font-mono); letter-spacing: .12em; color: var(--gold); }.project-index i { width: 3.5rem; height: 1px; background: var(--gold); }
+  .project-copy { max-width: 29rem; transform: translateY(calc((1 - var(--chapter-progress)) * 1.1rem)); opacity: calc(.78 + var(--chapter-progress) * .22); transition: transform .3s var(--ease), opacity .3s var(--ease); }.project-type { margin-bottom: .85rem; color: var(--blue-pale); }.project-copy h2 { max-width: 9ch; font-size: clamp(2.7rem, 4.7vw, 5.35rem); font-weight: 540; letter-spacing: -.07em; line-height: .9; }
+  .button-outline { color: var(--text); border: 1px solid rgba(237, 217, 156, .55); background: transparent; }.button-outline:hover { color: #0a0a08; border-color: var(--gold); background: var(--gold); }
   .tools-section { padding-block: clamp(7rem, 13vw, 11rem); }.tools-content h2 { max-width: 13ch; }.tool-list { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 2.2rem; }.tool-list span { border: 1px solid var(--line-strong); padding: .65rem .8rem; color: var(--muted); font: 500 .68rem/1.2 var(--font-mono); letter-spacing: .06em; text-transform: uppercase; transition: color .2s var(--ease), border-color .2s var(--ease); }.tool-list span:hover { color: var(--gold-bright); border-color: var(--gold); }
   .contact-cta { margin-top: 0; padding: clamp(5rem, 10vw, 10rem) 0; background: var(--gold); color: #0b0a06; overflow: hidden; }.contact-cta-inner { position: relative; min-height: 18rem; }.contact-cta .section-label { color: rgba(20,15,4,.7); }.contact-cta h2 { max-width: 10ch; margin-top: 2rem; }.contact-round-link { position: absolute; right: 1%; bottom: 0; display: grid; place-items: center; width: clamp(8.5rem, 14vw, 12rem); aspect-ratio: 1; border: 1px solid rgba(16,12,3,.55); border-radius: 50%; text-align: center; font: 600 .7rem/1.4 var(--font-mono); letter-spacing: .12em; transition: transform .3s var(--ease), color .3s var(--ease), background .3s var(--ease); }.contact-round-link b { position: absolute; font: 400 1.5rem/1 var(--font-display); top: 1rem; right: 1.5rem; }.contact-round-link:hover { color: var(--gold); background: #0a0a08; transform: rotate(8deg); }
-  @media (min-width: 780px) { .hero-grid { grid-template-columns: minmax(0, .9fr) minmax(25rem, 1.1fr); }.hero-viewport { width: min(100%, 43rem); }.statement-grid, .tools-grid { grid-template-columns: minmax(11rem, .5fr) minmax(0, 1.5fr); }.capability-grid { grid-template-columns: repeat(4, 1fr); }.capability { border-right: 1px solid var(--line); }.capability:last-child { border-right: 0; }.work-intro-grid { grid-template-columns: minmax(11rem, .5fr) minmax(0, 1.15fr) auto; align-items: end; } }
-  @media (max-width: 779px) { .hero { padding-top: 2rem; }.hero-grid { min-height: auto; }.hero-copy { padding-bottom: 0; }h1 { font-size: clamp(4.2rem, 17vw, 6.3rem); }.hero-viewport { order: -1; margin-inline: auto; width: min(100%, 30rem); }.metric-top { right: 2%; }.metric-bottom { left: 2%; }.hero-bottom { margin-top: 2rem; }.hero-bottom p:last-child { display: none; }.section-heading { display: block; }.section-heading h2 { margin-top: 1.25rem; }.capability { min-height: 12rem; }.capability h3 { margin-top: 2.4rem; }.project-chapter { height: 145svh; }.project-render :global(img) { object-position: center !important; }.project-shade { background: linear-gradient(0deg, rgba(3,5,5,.96) 1%, rgba(3,5,5,.74) 37%, rgba(3,5,5,.05) 100%); }.project-grid-overlay { opacity: .15; mask-image: linear-gradient(0deg, black, transparent 65%); }.project-content { padding-bottom: 4rem; }.project-copy h2 { font-size: clamp(2.7rem, 11.8vw, 4.4rem); }.project-corner { display: none; }.contact-cta-inner { min-height: 25rem; }.contact-round-link { right: 0; bottom: 0; } }
+  @media (min-width: 780px) { .hero-grid { grid-template-columns: minmax(0, .9fr) minmax(25rem, 1.1fr); }.hero-viewport { width: min(100%, 43rem); }.statement-grid, .tools-grid, .section-heading, .work-intro-grid { grid-template-columns: minmax(11rem, .5fr) minmax(0, 1.5fr); }.capability-grid { grid-template-columns: repeat(4, 1fr); }.capability { border-right: 1px solid var(--line); }.capability:last-child { border-right: 0; }.project-chapter.image-left .project-stage { grid-template-columns: minmax(0, 1.34fr) minmax(20rem, .66fr); }.project-chapter.image-left .project-render { grid-column: 1; }.project-chapter.image-left .project-content { grid-column: 2; } }
+  @media (max-width: 779px) {
+    .hero { padding-top: 2rem; }.hero-grid { min-height: auto; }.hero-copy { padding-bottom: 0; }h1 { font-size: clamp(4.2rem, 17vw, 6.3rem); }.hero-viewport { order: -1; margin-inline: auto; width: min(100%, 30rem); }.metric-top { right: 2%; }.metric-bottom { left: 2%; }.hero-bottom { margin-top: 2rem; }.hero-bottom p:last-child { display: none; }.section-heading { display: block; }.section-heading h2 { margin-top: 1.25rem; }.capability { min-height: 12rem; }.capability h3 { margin-top: 2.4rem; }
+    .work-intro { padding: 4.75rem 0 2.5rem; }.project-chapter { height: auto; }.project-stage { position: relative; top: auto; display: flex; height: auto; flex-direction: column; }.project-render { height: min(58svh, 34rem); }.project-render :global(img) { transform: none; object-position: center !important; }.project-content { display: block; padding: 1.5rem clamp(1.25rem, 5vw, 2rem) 2.75rem; }.project-index { margin-bottom: 1.8rem; }.project-copy { transform: none; opacity: 1; }.project-copy h2 { max-width: 9ch; font-size: clamp(2.7rem, 11.8vw, 4.4rem); }.project-copy .button { margin-top: .25rem; }
+    .contact-cta-inner { min-height: 25rem; }.contact-round-link { right: 0; bottom: 0; }
+  }
   @media (prefers-reduced-motion: reduce) { .hero-rule span { animation: none; }.project-render, .project-copy { transform: none; transition: none; }.button:hover, .contact-round-link:hover { transform: none; } }
 </style>
 

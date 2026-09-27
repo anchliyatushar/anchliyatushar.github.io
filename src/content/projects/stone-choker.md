@@ -7,16 +7,15 @@ cover: ../../assets/final-designs/stone-choker.png
 editorial: ../../assets/editorial/final/final-stone-choker-worn.png
 gallery:
   - ../../assets/editorial/final/final-stone-choker-detail.png
-summary: A graduated emerald stone choker direction built around a close, balanced collar line.
+summary: A close-fitting gold choker in graduated emerald-green stones, arranged in a balanced collar line.
 metal: Gold
 stones: Emerald-green rectangular stones
-weight: Design study
-tools: [Rhino, MatrixGold, Matrix 9]
+tools: [Rhino 3D, Matrix 9, MatrixGold]
 featured: true
 orientation: portrait
 problem: Create a collar necklace with a strong colour rhythm that still feels composed when viewed from a distance.
 approach: The stone sequence was graduated across the neckline and held inside a compact gold setting language.
-outcome: A focused choker direction with a clear emerald centre of gravity and a clean on-body silhouette.
+outcome: A close-fitting choker with a clear emerald focal line and a clean worn silhouette.
 ---
 
-A close-to-the-neck emerald choker explored as a balanced CAD direction. The presentation pairs the final object view with worn and close detail studies, so the stone rhythm remains easy to read.
+A close-fitting emerald choker that follows the collarbone. The worn view and macro detail show the full proportion, setting rhythm and central colour.

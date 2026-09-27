@@ -11,6 +11,7 @@ interface Props {
   alt?: string;
   orientation?: 'portrait' | 'landscape';
   index?: number;
+  headingLevel?: 2 | 3;
 }
 
 const {
@@ -22,9 +23,11 @@ const {
   alt = `${title} editorial image`,
   orientation = 'portrait',
   index = 0,
+  headingLevel = 2,
 } = Astro.props;
 const delayClass = `reveal-delay-${(index % 3) + 1}`;
 const Tag = href ? 'a' : 'article';
+const Heading = headingLevel === 2 ? 'h2' : 'h3';
 ---
 
 <Tag class:list={['project-card', 'reveal', delayClass, orientation]} {...(href ? { href } : {})}>
@@ -39,7 +42,7 @@ const Tag = href ? 'a' : 'article';
   </div>
   <div class="copy">
     <p class="meta"><span>{String(index + 1).padStart(2, '0')}</span>{category}{metal ? ` · ${metal}` : ''}</p>
-    <h3>{title}</h3>
+    <Heading>{title}</Heading>
   </div>
 </Tag>
 
@@ -86,6 +89,7 @@ const Tag = href ? 'a' : 'article';
     padding-inline: 0.15rem;
   }
 
+  h2,
   h3 {
     font-size: clamp(1.35rem, 2vw, 1.8rem);
     font-weight: 550;

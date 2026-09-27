@@ -8,7 +8,7 @@ const projects = defineCollection({
     z.object({
       title: z.string(),
       year: z.number(),
-      category: z.enum(['bridal', 'necklace', 'earrings', 'rings', 'sets', 'brooches']),
+      category: z.enum(['bridal', 'necklace', 'earrings', 'rings', 'sets', 'brooches', 'bracelet', 'bangle']),
       tags: z.array(z.string()),
       cover: image(),
       editorial: image(),
@@ -17,7 +17,6 @@ const projects = defineCollection({
       summary: z.string(),
       metal: z.string(),
       stones: z.string(),
-      weight: z.string().optional(),
       tools: z.array(z.string()),
       featured: z.boolean().default(false),
       problem: z.string(),
