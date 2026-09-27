@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CadViewport from '../components/CadViewport';
+import ArrowIcon from '../components/ArrowIcon.astro';
 import stoneChokerDetail from '../assets/editorial/final/final-stone-choker-detail.png';
 import pantherBloomDetail from '../assets/editorial/final/final-panther-bloom-male-detail.png';
 import serpentBangleDetail from '../assets/editorial/final/final-serpent-bangle-mens-detail-extreme-macro-left.png';
@@ -58,8 +59,8 @@ const capabilities = [
         <h1>Jewellery,<br /><em>made build-ready.</em></h1>
         <p class="hero-intro">From sketch and stone plan to a considered 3D model—resolved for proportion, wearability and craft.</p>
         <div class="hero-actions">
-          <a href="#featured-projects" class="button button-gold">Explore the portfolio <span aria-hidden="true">↓</span></a>
-          <a href="/contact/" class="text-link">Start a project <span aria-hidden="true">↗</span></a>
+          <a href="#featured-projects" class="button button-gold">Explore the portfolio <ArrowIcon direction="down" /></a>
+          <a href="/contact/" class="text-link">Start a project <ArrowIcon /></a>
         </div>
       </div>
 
@@ -124,7 +125,7 @@ const capabilities = [
             <div class="project-index"><span>{project.id}</span><i></i><span>{String(projects.length).padStart(2, '0')}</span></div>
             <div class="project-copy">
               <p class="project-type">{project.type}</p><h2 id={`project-${project.id}`}>{project.title}</h2>
-              <a href={project.href} class="button button-outline">Open case study <span aria-hidden="true">↗</span></a>
+              <a href={project.href} class="button button-outline">Open case study <ArrowIcon /></a>
             </div>
           </div>
         </div>
@@ -136,7 +137,7 @@ const capabilities = [
     <div class="container tools-grid"><p class="section-label">[ Methods and tools ]</p><div class="tools-content reveal"><h2>Digital modelling.<br /><em>Jewellery thinking.</em></h2><div class="tool-list"><span>Rhino 3D</span><span>Matrix 9</span><span>MatrixGold</span><span>Jewellery visualisation</span><span>3D printing</span><span>AI-assisted visual development</span></div></div></div>
   </section>
 
-  <section class="contact-cta"><div class="container contact-cta-inner reveal"><p class="section-label">[ Available for jewellery projects ]</p><h2>Have a piece<br />in <em>mind?</em></h2><a href="/contact/" class="contact-round-link" aria-label="Contact Disha Jain"><span>LET'S<br />TALK</span><b aria-hidden="true">↗</b></a></div></section>
+  <section class="contact-cta"><div class="container contact-cta-inner reveal"><p class="section-label">[ Available for jewellery projects ]</p><h2>Have a piece<br />in <em>mind?</em></h2><a href="/contact/" class="contact-round-link" aria-label="Contact Disha Jain"><span>LET'S<br />TALK</span><ArrowIcon class="contact-arrow" /></a></div></section>
 </BaseLayout>
 
 <style>
@@ -163,7 +164,7 @@ const capabilities = [
   .project-copy { max-width: 29rem; transform: translateY(calc((1 - var(--chapter-progress)) * 1.1rem)); opacity: calc(.78 + var(--chapter-progress) * .22); transition: transform .3s var(--ease), opacity .3s var(--ease); }.project-type { margin-bottom: .85rem; color: var(--blue-pale); }.project-copy h2 { max-width: 9ch; font-size: clamp(2.7rem, 4.7vw, 5.35rem); font-weight: 540; letter-spacing: -.07em; line-height: .9; }
   .button-outline { color: var(--text); border: 1px solid rgba(237, 217, 156, .55); background: transparent; }.button-outline:hover { color: #0a0a08; border-color: var(--gold); background: var(--gold); }
   .tools-section { padding-block: clamp(7rem, 13vw, 11rem); }.tools-content h2 { max-width: 13ch; }.tool-list { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 2.2rem; }.tool-list span { border: 1px solid var(--line-strong); padding: .65rem .8rem; color: var(--muted); font: 500 .68rem/1.2 var(--font-mono); letter-spacing: .06em; text-transform: uppercase; transition: color .2s var(--ease), border-color .2s var(--ease); }.tool-list span:hover { color: var(--gold-bright); border-color: var(--gold); }
-  .contact-cta { margin-top: 0; padding: clamp(5rem, 10vw, 10rem) 0; background: var(--gold); color: #0b0a06; overflow: hidden; }.contact-cta-inner { position: relative; min-height: 18rem; }.contact-cta .section-label { color: rgba(20,15,4,.7); }.contact-cta h2 { max-width: 10ch; margin-top: 2rem; }.contact-round-link { position: absolute; right: 1%; bottom: 0; display: grid; place-items: center; width: clamp(8.5rem, 14vw, 12rem); aspect-ratio: 1; border: 1px solid rgba(16,12,3,.55); border-radius: 50%; text-align: center; font: 600 .7rem/1.4 var(--font-mono); letter-spacing: .12em; transition: transform .3s var(--ease), color .3s var(--ease), background .3s var(--ease); }.contact-round-link b { position: absolute; font: 400 1.5rem/1 var(--font-display); top: 1rem; right: 1.5rem; }.contact-round-link:hover { color: var(--gold); background: #0a0a08; transform: rotate(8deg); }
+  .contact-cta { margin-top: 0; padding: clamp(5rem, 10vw, 10rem) 0; background: var(--gold); color: #0b0a06; overflow: hidden; }.contact-cta-inner { position: relative; min-height: 18rem; }.contact-cta .section-label { color: rgba(20,15,4,.7); }.contact-cta h2 { max-width: 10ch; margin-top: 2rem; }.contact-round-link { position: absolute; right: 1%; bottom: 0; display: grid; place-items: center; width: clamp(8.5rem, 14vw, 12rem); aspect-ratio: 1; border: 1px solid rgba(16,12,3,.55); border-radius: 50%; text-align: center; font: 600 .7rem/1.4 var(--font-mono); letter-spacing: .12em; transition: transform .3s var(--ease), color .3s var(--ease), background .3s var(--ease); }.contact-round-link :global(.contact-arrow) { position: absolute; width: 1.35rem; height: 1.35rem; top: 1rem; right: 1.45rem; }.contact-round-link:hover { color: var(--gold); background: #0a0a08; transform: rotate(8deg); }
   @media (min-width: 780px) { .hero-grid { grid-template-columns: minmax(0, .9fr) minmax(25rem, 1.1fr); }.hero-viewport { width: min(100%, 43rem); }.about-process-intro, .process-header, .tools-grid, .work-intro-grid { grid-template-columns: minmax(11rem, .5fr) minmax(0, 1.5fr); }.capability-grid { grid-template-columns: repeat(4, 1fr); }.capability { border-right: 1px solid var(--line); }.capability:last-child { border-right: 0; }.project-chapter.image-left .project-stage { grid-template-columns: minmax(0, 1.34fr) minmax(20rem, .66fr); }.project-chapter.image-left .project-render { grid-column: 1; }.project-chapter.image-left .project-content { grid-column: 2; } }
   @media (max-width: 779px) {
     .hero { padding-top: 2rem; }.hero-grid { min-height: auto; }.hero-copy { padding-bottom: 0; }h1 { font-size: clamp(4.2rem, 17vw, 6.3rem); }.hero-viewport { order: -1; margin-inline: auto; width: min(100%, 30rem); }.metric-top { right: 2%; }.metric-bottom { left: 2%; }.hero-bottom { margin-top: 2rem; }.hero-bottom p:last-child { display: none; }.process-summary { margin-top: .25rem; }.capability { min-height: 12rem; }.capability h3 { margin-top: 2.4rem; }

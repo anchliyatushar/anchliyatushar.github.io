@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ArrowIcon from '../components/ArrowIcon.astro';
 ---
 
 <BaseLayout
@@ -27,7 +28,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
         <div class="channel">
           <span class="label label-with-icon"><svg class="channel-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.2A8 8 0 1 1 20 11.5Z"/><path d="M9 8.5c.2 2.6 2 4.4 4.5 4.6l1.1-1.1 1.5.8c.3.2.4.5.2.8l-.7 1c-.2.3-.5.4-.8.4A8.2 8.2 0 0 1 8 8.2c0-.3.1-.6.4-.8l1-.7c.3-.2.6-.1.8.2l.8 1.5L9 8.5Z"/></svg>WhatsApp</span>
-          <a class="value" href="https://wa.me/917020460962" target="_blank" rel="noreferrer">Message on WhatsApp <span aria-hidden="true">↗</span></a>
+          <a class="value value-with-arrow" href="https://wa.me/917020460962" target="_blank" rel="noreferrer">Message on WhatsApp <ArrowIcon /></a>
         </div>
         <div class="channel">
           <span class="label">Location</span>
@@ -109,6 +110,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .value {
     font-size: 1.15rem;
     font-weight: 560;
+  }
+
+  .value-with-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    width: fit-content;
   }
 
   .faq h2 {

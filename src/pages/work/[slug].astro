@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import MediaBlock from '../../components/MediaBlock.astro';
+import ArrowIcon from '../../components/ArrowIcon.astro';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -107,7 +108,7 @@ const visibleTags = tags.filter((tag) => tag.toLowerCase() !== normalisedCategor
     </section>
 
     <div class="container back">
-      <a class="btn btn-ghost" href="/work/">← Back to portfolio</a>
+      <a class="btn btn-ghost" href="/work/"><ArrowIcon direction="left" /> Back to portfolio</a>
     </div>
   </article>
 </BaseLayout>
@@ -176,6 +177,12 @@ const visibleTags = tags.filter((tag) => tag.toLowerCase() !== normalisedCategor
 
   .back {
     padding-bottom: 2rem;
+  }
+
+  .back .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
   }
 
   @media (min-width: 900px) {
