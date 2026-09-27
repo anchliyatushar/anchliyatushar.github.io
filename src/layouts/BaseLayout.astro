@@ -2,20 +2,56 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import DesktopCursor from '../components/DesktopCursor.astro';
 
 interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
+  ogImageAlt?: string;
+  pageType?: 'website' | 'article';
 }
 
 const {
   title = 'Disha Jain — Jewellery CAD Designer',
   description = 'Jewellery CAD portfolio by Disha Jain — 3D modelling, visualisation and production-aware jewellery development.',
-  ogImage = '/og-default.jpg',
+  ogImage = '/og-default.jpg?v=3',
+  ogImageAlt = 'Disha Jain jewellery CAD portfolio featuring an emerald stone choker',
+  pageType = 'website',
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const socialImage = new URL(ogImage, Astro.site);
+const siteUrl = new URL('/', Astro.site).href;
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}#website`,
+      url: siteUrl,
+      name: 'Disha Jain Jewellery CAD',
+      description: 'Jewellery CAD portfolio by Disha Jain.',
+      inLanguage: 'en-IN',
+    },
+    {
+      '@type': 'Person',
+      '@id': `${siteUrl}#disha-jain`,
+      name: 'Disha Jain',
+      url: siteUrl,
+      image: socialImage.href,
+      jobTitle: 'Jewellery CAD Designer',
+      description: 'Jewellery CAD designer, educator and technical consultant specialising in 3D modelling, visualisation and production-aware jewellery development.',
+      email: 'solankidisha123@gmail.com',
+      telephone: '+91 70204 60962',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Bangalore',
+        addressCountry: 'IN',
+      },
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -23,20 +59,33 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3" />
+    <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="author" content="Disha Jain" />
+    <meta name="keywords" content="jewellery CAD designer, jewellery 3D modelling, Rhino jewellery, MatrixGold, jewellery visualisation, jewellery CAD portfolio" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#070908" />
     <link rel="canonical" href={canonical} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={pageType} />
+    <meta property="og:site_name" content="Disha Jain Jewellery CAD" />
+    <meta property="og:locale" content="en_IN" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:secure_url" content={socialImage} />
+    <meta property="og:image:alt" content={ogImageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <slot name="head" />
   </head>
   <body>
@@ -45,6 +94,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
       <slot />
     </main>
     <Footer />
+    <DesktopCursor />
     <script src="../scripts/reveal.ts"></script>
   </body>
 </html>

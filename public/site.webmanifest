@@ -1,0 +1,17 @@
+{
+  "name": "Disha Jain Jewellery CAD",
+  "short_name": "Disha Jain",
+  "description": "Jewellery CAD portfolio by Disha Jain.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070908",
+  "theme_color": "#070908",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

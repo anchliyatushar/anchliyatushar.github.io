@@ -1,0 +1,113 @@
+<div class="desktop-cursor" aria-hidden="true">
+  <span class="desktop-cursor-core"></span>
+  <span class="desktop-cursor-ring"></span>
+</div>
+
+<style>
+  .desktop-cursor {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 1.8rem;
+    height: 1.8rem;
+    pointer-events: none;
+    transform: translate3d(-100px, -100px, 0);
+    transition: opacity 0.18s ease;
+  }
+
+  .desktop-cursor-core,
+  .desktop-cursor-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .desktop-cursor-core {
+    width: 0.28rem;
+    height: 0.28rem;
+    border-radius: 50%;
+    background: var(--gold-bright);
+    box-shadow: 0 0 0.75rem rgba(240, 212, 123, 0.65);
+  }
+
+  .desktop-cursor-ring {
+    width: 1.55rem;
+    height: 1.55rem;
+    border: 1px solid rgba(240, 212, 123, 0.8);
+    border-radius: 50%;
+    transition: width 0.2s var(--ease), height 0.2s var(--ease), border-color 0.2s var(--ease), border-radius 0.2s var(--ease);
+  }
+
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .desktop-cursor {
+      display: block;
+      opacity: 0;
+    }
+
+    :global(html.has-custom-cursor),
+    :global(html.has-custom-cursor *) {
+      cursor: none !important;
+    }
+
+    .desktop-cursor.is-visible {
+      opacity: 1;
+    }
+
+    .desktop-cursor.is-interactive .desktop-cursor-ring {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-color: var(--gold-bright);
+    }
+
+    .desktop-cursor.is-drag .desktop-cursor-ring {
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 0.2rem;
+      border-color: var(--blue-pale);
+    }
+  }
+</style>
+
+<script>
+  const supportsCustomCursor =
+    window.matchMedia('(hover: hover) and (pointer: fine)').matches &&
+    !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (supportsCustomCursor) {
+    const cursor = document.querySelector<HTMLElement>('.desktop-cursor');
+
+    if (cursor) {
+      let frame = 0;
+      let x = -100;
+      let y = -100;
+
+      const render = () => {
+        cursor.style.transform = `translate3d(${x - 14}px, ${y - 14}px, 0)`;
+        frame = 0;
+      };
+
+      const scheduleRender = () => {
+        if (!frame) frame = window.requestAnimationFrame(render);
+      };
+
+      document.documentElement.classList.add('has-custom-cursor');
+      window.addEventListener('pointermove', (event) => {
+        x = event.clientX;
+        y = event.clientY;
+        cursor.classList.add('is-visible');
+        scheduleRender();
+      }, { passive: true });
+
+      document.addEventListener('pointerover', (event) => {
+        const target = event.target instanceof Element ? event.target : null;
+        cursor.classList.toggle('is-interactive', Boolean(target?.closest('a, button, [role="button"]')));
+        cursor.classList.toggle('is-drag', Boolean(target?.closest('.cad-scene')));
+      }, { passive: true });
+
+      document.documentElement.addEventListener('pointerleave', () => cursor.classList.remove('is-visible'));
+    }
+  }
+</script>

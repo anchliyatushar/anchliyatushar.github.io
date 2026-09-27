@@ -47,7 +47,13 @@ const normalisedCategory = categoryLabel.toLowerCase();
 const visibleTags = tags.filter((tag) => tag.toLowerCase() !== normalisedCategory);
 ---
 
-<BaseLayout title={`${title} — Disha Jain`} description={summary} ogImage={editorial.src}>
+<BaseLayout
+  title={`${title} — Disha Jain`}
+  description={summary}
+  ogImage={editorial.src}
+  ogImageAlt={`${title} jewellery CAD design worn by a model`}
+  pageType="article"
+>
   <article>
     <header class="project-hero section">
       <div class="container">
