@@ -1,0 +1,165 @@
+<div class="cad-scene" data-cad-scene aria-hidden="true">
+  <div class="cad-floor"></div>
+  <div class="cad-backplane"></div>
+  <div class="cad-axes cad-axes-x"><span>X</span></div>
+  <div class="cad-axes cad-axes-y"><span>Y</span></div>
+  <div class="cad-axes cad-axes-z"><span>Z</span></div>
+
+  <div class="cad-float">
+    <div class="cad-rotation">
+      <svg class="cad-model" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="goldSurface" x1="152" y1="82" x2="454" y2="506" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FFF4C6" />
+            <stop offset=".18" stop-color="#E8C25A" />
+            <stop offset=".5" stop-color="#9B6818" />
+            <stop offset=".77" stop-color="#F2D273" />
+            <stop offset="1" stop-color="#714208" />
+          </linearGradient>
+          <linearGradient id="goldLine" x1="111" y1="240" x2="500" y2="370" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#805011" />
+            <stop offset=".45" stop-color="#FFE38D" />
+            <stop offset="1" stop-color="#9C6619" />
+          </linearGradient>
+          <radialGradient id="stone" cx="0" cy="0" r="1" gradientTransform="translate(301 226) rotate(90) scale(69)">
+            <stop stop-color="#FFFCEC" />
+            <stop offset=".28" stop-color="#D7E9F1" />
+            <stop offset=".65" stop-color="#769BAC" />
+            <stop offset="1" stop-color="#1A3443" />
+          </radialGradient>
+          <filter id="glow" x="78" y="52" width="444" height="483" filterUnits="userSpaceOnUse">
+            <feGaussianBlur stdDeviation="8" result="blur" />
+            <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+          </filter>
+        </defs>
+
+        <g class="construction" opacity=".55">
+          <ellipse cx="300" cy="302" rx="227" ry="89" stroke="#D9E6EA" stroke-width="1.2" stroke-dasharray="5 8" />
+          <ellipse cx="300" cy="302" rx="159" ry="215" stroke="#D9E6EA" stroke-width="1.2" stroke-dasharray="5 8" />
+          <path d="M50 302H550M300 58V544" stroke="#D9E6EA" stroke-width="1.2" stroke-dasharray="5 8" />
+          <path d="M107 166L493 438M107 438L493 166" stroke="#D9E6EA" stroke-width=".8" stroke-dasharray="3 10" />
+        </g>
+
+        <g class="ring-body" filter="url(#glow)">
+          <ellipse cx="300" cy="354" rx="144" ry="137" stroke="url(#goldSurface)" stroke-width="34" />
+          <ellipse cx="300" cy="354" rx="144" ry="137" stroke="url(#goldLine)" stroke-width="3" opacity=".9" />
+          <path d="M166 360C191 408 242 440 300 440C358 440 409 408 434 360" stroke="#FFEBA5" stroke-width="2" opacity=".72" />
+          <path d="M168 334C189 281 236 266 300 266C364 266 411 281 432 334" stroke="#76450A" stroke-width="4" opacity=".86" />
+        </g>
+
+        <g class="crown">
+          <path d="M213 255L235 161L273 194L300 132L327 194L365 161L387 255" fill="url(#goldSurface)" stroke="#FCE191" stroke-width="2" />
+          <path d="M213 255H387L356 307H244L213 255Z" fill="#9C6619" stroke="#F9DA7B" stroke-width="2" />
+          <path d="M244 307H356L331 333H269L244 307Z" fill="#744608" />
+          <circle cx="300" cy="228" r="67" fill="url(#stone)" stroke="#FFF1B7" stroke-width="8" />
+          <path d="M254 182L300 228L346 182M238 228H362M254 274L300 228L346 274" stroke="#FFFFFF" stroke-width="1.5" opacity=".82" />
+          <circle cx="300" cy="228" r="16" fill="#FFFDF4" opacity=".9" />
+          <g fill="#F8D36D" stroke="#805011" stroke-width="2">
+            <circle cx="221" cy="227" r="12" /><circle cx="247" cy="160" r="12" /><circle cx="300" cy="139" r="12" />
+            <circle cx="353" cy="160" r="12" /><circle cx="379" cy="227" r="12" />
+          </g>
+        </g>
+
+        <g class="cad-dimensions" stroke="#B8E6FA" stroke-width="1.3" opacity=".95">
+          <path d="M137 465V514H463V465M137 495H463" />
+          <path d="M137 495L148 489M137 495L148 501M463 495L452 489M463 495L452 501" />
+          <path d="M453 176H498V343H453M478 176V343" />
+          <path d="M478 176L472 187M478 176L484 187M478 343L472 332M478 343L484 332" />
+        </g>
+        <g class="cad-labels" fill="#E2F3FA">
+          <text x="264" y="538">Ø 18.2 mm</text>
+          <text x="487" y="262" transform="rotate(90 487 262)">6.4 mm</text>
+          <text x="75" y="98">RING_001</text>
+          <text x="75" y="116">WIP / V12</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <span class="view-label view-label-top">Perspective</span>
+  <span class="view-label view-label-bottom">Live model / rotate</span>
+</div>
+
+<style>
+  .cad-scene {
+    --mouse-x: 0deg;
+    --mouse-y: 0deg;
+    position: relative;
+    width: min(100%, 43rem);
+    aspect-ratio: 1 / 1;
+    perspective: 1200px;
+    perspective-origin: 52% 45%;
+    overflow: hidden;
+    border: 1px solid rgba(214, 238, 246, .22);
+    border-radius: .35rem;
+    background:
+      radial-gradient(circle at 50% 43%, rgba(199, 235, 246, .13), transparent 24%),
+      linear-gradient(135deg, #0b1114 0%, #050708 68%);
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, .4), 0 20px 80px rgba(0, 0, 0, .3);
+    isolation: isolate;
+  }
+
+  .cad-scene::before,
+  .cad-scene::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .cad-scene::before {
+    z-index: 5;
+    opacity: .2;
+    background-image: linear-gradient(rgba(207, 240, 246, .2) 1px, transparent 1px), linear-gradient(90deg, rgba(207, 240, 246, .2) 1px, transparent 1px);
+    background-size: 2.75rem 2.75rem;
+    mask-image: linear-gradient(130deg, black, transparent 76%);
+  }
+
+  .cad-scene::after {
+    z-index: 6;
+    opacity: .4;
+    background: repeating-linear-gradient(0deg, transparent 0 3px, rgba(255,255,255,.025) 3px 4px);
+  }
+
+  .cad-floor {
+    position: absolute;
+    width: 115%;
+    height: 52%;
+    left: -7%;
+    bottom: -20%;
+    transform: rotateX(66deg);
+    transform-origin: center top;
+    background-image: linear-gradient(rgba(183, 236, 249, .25) 1px, transparent 1px), linear-gradient(90deg, rgba(183, 236, 249, .25) 1px, transparent 1px);
+    background-size: 2rem 2rem;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,.85), transparent);
+  }
+
+  .cad-backplane {
+    position: absolute;
+    z-index: -1;
+    inset: 20% 12%;
+    border: 1px solid rgba(193, 235, 248, .25);
+    transform: rotateX(12deg) rotateY(-11deg);
+  }
+
+  .cad-axes { position: absolute; z-index: 3; width: 6.25rem; height: 1px; background: rgba(138, 231, 253, .62); transform-origin: left center; }
+  .cad-axes span { position: absolute; right: -1.1rem; top: -1.25rem; font: 600 .62rem/1 var(--font-mono); color: #bfeefe; }
+  .cad-axes-x { left: 9%; bottom: 11%; transform: rotate(-11deg); }
+  .cad-axes-y { left: 9%; bottom: 11%; transform: rotate(-78deg); }
+  .cad-axes-z { left: 9%; bottom: 11%; transform: rotate(41deg); background: rgba(244, 209, 112, .7); }
+
+  .cad-float { position: absolute; z-index: 2; inset: 8%; transform-style: preserve-3d; animation: drift 5.5s ease-in-out infinite; }
+  .cad-rotation { width: 100%; height: 100%; transform-style: preserve-3d; transform: rotateX(calc(-8deg + var(--mouse-y))) rotateY(calc(17deg + var(--mouse-x))); transition: transform .35s var(--ease); }
+  .cad-model { width: 100%; height: 100%; overflow: visible; transform: translateZ(30px); }
+  .construction { transform-origin: center; animation: model-spin 24s linear infinite; }
+  .ring-body { transform-origin: center; animation: glint 5s ease-in-out infinite; }
+  .cad-labels { font: 600 11px var(--font-mono); letter-spacing: 1.2px; }
+  .view-label { position: absolute; z-index: 7; font: 600 .58rem/1 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: rgba(219, 244, 250, .65); }
+  .view-label-top { top: 1.2rem; left: 1.2rem; }
+  .view-label-bottom { right: 1.2rem; bottom: 1.2rem; color: rgba(246, 211, 111, .75); }
+
+  @keyframes drift { 50% { transform: translateY(-.85rem); } }
+  @keyframes model-spin { to { transform: rotate(360deg); } }
+  @keyframes glint { 50% { filter: brightness(1.2); } }
+  @media (prefers-reduced-motion: reduce) { .cad-float, .construction, .ring-body { animation: none; } .cad-rotation { transition: none; } }
+</style>

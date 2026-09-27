@@ -1,0 +1,191 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import MediaBlock from '../../components/MediaBlock.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const {
+  title,
+  year,
+  category,
+  tags,
+  cover,
+  editorial,
+  video,
+  gallery,
+  summary,
+  metal,
+  stones,
+  weight,
+  tools,
+  problem,
+  approach,
+  outcome,
+} = project.data;
+const [detail] = gallery;
+---
+
+<BaseLayout title={`${title} — Disha`} description={summary} ogImage={editorial.src}>
+  <article>
+    <header class="project-hero section">
+      <div class="container">
+        <p class="eyebrow reveal">{year} · {category} · {tags.join(' · ')}</p>
+        <h1 class="reveal reveal-delay-1">{title}</h1>
+        <p class="summary reveal reveal-delay-2">{summary}</p>
+      </div>
+    </header>
+
+    <section class="container case-media" aria-label={`${title} editorial views`}>
+      <div class="case-panel wearer-view">
+        <p class="media-label">On body</p>
+        <MediaBlock image={editorial} alt={`${title} worn by a model`} priority />
+      </div>
+      {
+        detail && (
+          <div class="case-panel detail-view">
+            <p class="media-label">Detail focus</p>
+            <MediaBlock image={detail} alt={`${title} close-up detail`} />
+          </div>
+        )
+      }
+      {video && <MediaBlock image={cover} videoSrc={video} caption="Turntable study" fullBleed />}
+    </section>
+
+    <section class="section">
+      <div class="container narrative">
+        <div class="story reveal">
+          <Content />
+        </div>
+        <dl class="facts reveal reveal-delay-1">
+          <div>
+            <dt>Sketch → CAD</dt>
+            <dd>{problem}</dd>
+          </div>
+          <div>
+            <dt>CAD → Render</dt>
+            <dd>{approach}</dd>
+          </div>
+          <div>
+            <dt>Casting notes</dt>
+            <dd>{outcome}</dd>
+          </div>
+          <div>
+            <dt>Metal</dt>
+            <dd>{metal}</dd>
+          </div>
+          <div>
+            <dt>Stones</dt>
+            <dd>{stones}</dd>
+          </div>
+          {
+            weight && (
+              <div>
+                <dt>Weight</dt>
+                <dd>{weight}</dd>
+              </div>
+            )
+          }
+          <div>
+            <dt>Tools</dt>
+            <dd>{tools.join(', ')}</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="container back">
+      <a class="btn btn-ghost" href="/work/">← All work</a>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .project-hero {
+    padding-bottom: 2rem;
+  }
+
+  h1 {
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    margin-top: 0.5rem;
+  }
+
+  .summary {
+    margin-top: 1rem;
+    max-width: 40rem;
+    color: var(--muted);
+    font-size: 1.1rem;
+  }
+
+  .case-media { display: grid; gap: 1px; padding-block: clamp(1.25rem, 3vw, 2.5rem); background: var(--line); }
+  .case-panel { min-width: 0; padding: clamp(.7rem, 1.2vw, 1rem); background: #050504; }
+  .media-label { margin: 0 0 .7rem; color: var(--accent); font: 600 .62rem/1.2 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; }
+  .case-panel :global(.media-block) { margin: 0; }
+  .case-panel :global(.frame) { border: 0; }
+  .case-panel :global(img) { width: 100%; height: min(70svh, 46rem); object-fit: cover; }
+
+  .narrative {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .story {
+    max-width: 40rem;
+    color: rgba(244, 241, 234, 0.9);
+    font-size: 1.05rem;
+  }
+
+  .facts {
+    display: grid;
+    gap: 1.35rem;
+    margin: 0;
+    padding: 1.5rem 0 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .facts div {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  dt {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  dd {
+    margin: 0;
+    color: var(--muted);
+    max-width: 36rem;
+  }
+
+  .back {
+    padding-bottom: 2rem;
+  }
+
+  @media (min-width: 900px) {
+    .case-media { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .case-panel :global(img) { height: clamp(32rem, 56vw, 46rem); }
+    .narrative {
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: start;
+    }
+
+    .facts {
+      border-top: 0;
+      border-left: 1px solid var(--line);
+      padding: 0 0 0 2rem;
+    }
+  }
+</style>

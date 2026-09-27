@@ -1,0 +1,72 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <p class="name">Disha Jain</p>
+      <p class="tag">Jewellery CAD Designer · Faculty · Technical Consultant</p>
+    </div>
+    <div class="footer-links">
+      <a href="/work/">Work</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </div>
+    <p class="copy">&copy; {year} Disha Jain. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--line);
+    padding-block: 2.5rem 3rem;
+    margin-top: 0;
+    background: var(--bg-elevated);
+  }
+
+  .footer-inner {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .name {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 650;
+  }
+
+  .tag,
+  .copy {
+    color: var(--muted);
+    font: 500 0.68rem/1.5 var(--font-mono);
+    letter-spacing: 0.04em;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+  }
+
+  .footer-links a {
+    color: var(--muted);
+    font-size: 0.92rem;
+    transition: color 0.2s var(--ease);
+  }
+
+  .footer-links a:hover {
+    color: var(--accent-bright);
+  }
+
+  @media (min-width: 720px) {
+    .footer-inner {
+      grid-template-columns: 1fr auto;
+      align-items: end;
+    }
+
+    .copy {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

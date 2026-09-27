@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact — Disha"
+  description="Contact Disha Jain for jewellery CAD development, visualisation, technical guidance and CAD training."
+>
+  <section class="section">
+    <div class="container contact">
+      <div class="copy reveal">
+        <p class="eyebrow">Contact</p>
+        <h1>Start with an idea.</h1>
+        <p>
+          Available for jewellery CAD development, design interpretation, production support, visualisation and CAD training. Send a sketch, reference, stone list or brief.
+        </p>
+      </div>
+
+      <div class="channels reveal reveal-delay-1">
+        <div class="channel">
+          <span class="label">Email</span>
+          <a class="value" href="mailto:solankidisha123@gmail.com">solankidisha123@gmail.com</a>
+        </div>
+        <div class="channel">
+          <span class="label">Phone</span>
+          <a class="value" href="tel:+917020460962">+91 70204 60962</a>
+        </div>
+        <div class="channel">
+          <span class="label label-with-icon"><svg class="channel-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.2A8 8 0 1 1 20 11.5Z"/><path d="M9 8.5c.2 2.6 2 4.4 4.5 4.6l1.1-1.1 1.5.8c.3.2.4.5.2.8l-.7 1c-.2.3-.5.4-.8.4A8.2 8.2 0 0 1 8 8.2c0-.3.1-.6.4-.8l1-.7c.3-.2.6-.1.8.2l.8 1.5L9 8.5Z"/></svg>WhatsApp</span>
+          <a class="value" href="https://wa.me/917020460962" target="_blank" rel="noreferrer">Message on WhatsApp <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="channel">
+          <span class="label">Location</span>
+          <span class="value">Bangalore, India</span>
+        </div>
+      </div>
+
+      <div class="faq reveal reveal-delay-2">
+        <h2>Quick FAQ</h2>
+        <dl>
+          <div>
+            <dt>File formats</dt>
+            <dd>Rhino and MatrixGold CAD workflows, with production and 3D-printing considerations.</dd>
+          </div>
+          <div>
+            <dt>Turnaround</dt>
+            <dd>Timing is scoped to the object complexity, detail level and production requirements.</dd>
+          </div>
+          <div>
+            <dt>Collaboration</dt>
+            <dd>Available for independent design work, technical consultation and CAD mentoring.</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact {
+    display: grid;
+    gap: 2.5rem;
+    max-width: 42rem;
+  }
+
+  h1 {
+    font-size: clamp(2.3rem, 5vw, 3.5rem);
+    margin: 0.5rem 0 1.1rem;
+  }
+
+  .copy p:last-child {
+    color: var(--muted);
+    font-size: 1.08rem;
+  }
+
+  .channels {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .channel {
+    display: grid;
+    gap: 0.25rem;
+    padding: 1.1rem 0;
+    border-top: 1px solid var(--line);
+    transition: color 0.2s var(--ease);
+  }
+
+  .channel:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .channel:hover .value {
+    color: var(--accent-bright);
+  }
+
+  .label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .label-with-icon { display: inline-flex; align-items: center; gap: 0.45rem; }
+
+  .channel-icon { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 1.7; }
+
+  .value {
+    font-size: 1.15rem;
+    font-weight: 560;
+  }
+
+  .faq h2 {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .faq dl {
+    margin: 0;
+    display: grid;
+    gap: 1.1rem;
+  }
+
+  .faq dt {
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+
+  .faq dd {
+    margin: 0;
+    color: var(--muted);
+  }
+</style>
