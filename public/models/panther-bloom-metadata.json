@@ -1,0 +1,278 @@
+{
+  "source": "f2.3dm",
+  "description": "Rhino render meshes with resolved block transforms. Broad polished leaves/ribbons retain full source tessellation and cached surface normals; smaller details are simplified independently.",
+  "coordinateSystem": {
+    "front": "+Z",
+    "up": "+Y",
+    "frontPlane": "XY",
+    "longestExtent": 5
+  },
+  "sourceBounds": {
+    "min": [
+      -25.881786339881437,
+      -28.99346507982893,
+      -1.687751505201873
+    ],
+    "max": [
+      28.502333807469075,
+      29.557112424446267,
+      9.67872487698161
+    ]
+  },
+  "sourceCentre": [
+    1.310273733793819,
+    0.28182367230866845,
+    3.9954866858898685
+  ],
+  "sourceToSceneScale": 0.08539625419808906,
+  "layers": {
+    "Creation Curves": {
+      "objects": 43,
+      "sourceTriangles": 140550,
+      "exportTriangles": 28110
+    },
+    "Gem 03": {
+      "objects": 28,
+      "sourceTriangles": 8904,
+      "exportTriangles": 2240
+    },
+    "Metal 02": {
+      "objects": 120,
+      "sourceTriangles": 830174,
+      "exportTriangles": 39740
+    },
+    "User Layer 27": {
+      "objects": 1,
+      "sourceTriangles": 5862,
+      "exportTriangles": 5862,
+      "normalSource": "Rhino cached surface normals",
+      "meshPolicy": "Full source tessellation; original hard-edge vertex splits"
+    },
+    "User Layer 25": {
+      "objects": 1,
+      "sourceTriangles": 1810,
+      "exportTriangles": 1810,
+      "normalSource": "Rhino cached surface normals",
+      "meshPolicy": "Full source tessellation; original hard-edge vertex splits"
+    },
+    "Gem 01": {
+      "objects": 1,
+      "sourceTriangles": 400,
+      "exportTriangles": 400
+    },
+    "Heads": {
+      "objects": 620,
+      "sourceTriangles": 144768,
+      "exportTriangles": 21120
+    },
+    "Gem 02": {
+      "objects": 274,
+      "sourceTriangles": 65708,
+      "exportTriangles": 21920
+    },
+    "User Layer 20": {
+      "objects": 1,
+      "sourceTriangles": 1166,
+      "exportTriangles": 1166,
+      "normalSource": "Rhino cached surface normals",
+      "meshPolicy": "Full source tessellation; original hard-edge vertex splits"
+    },
+    "User Layer 28": {
+      "objects": 1,
+      "sourceTriangles": 1440,
+      "exportTriangles": 1440,
+      "normalSource": "Rhino cached surface normals",
+      "meshPolicy": "Full source tessellation; original hard-edge vertex splits"
+    },
+    "User Layer 18": {
+      "objects": 1,
+      "sourceTriangles": 3498,
+      "exportTriangles": 3498,
+      "normalSource": "Rhino cached surface normals",
+      "meshPolicy": "Full source tessellation; original hard-edge vertex splits"
+    },
+    "User Layer 31": {
+      "objects": 1,
+      "sourceTriangles": 754,
+      "exportTriangles": 754,
+      "normalSource": "Rhino cached surface normals",
+      "meshPolicy": "Full source tessellation; original hard-edge vertex splits"
+    },
+    "Gem 04": {
+      "objects": 397,
+      "sourceTriangles": 43670,
+      "exportTriangles": 31760
+    },
+    "User Layer 21": {
+      "objects": 1,
+      "sourceTriangles": 3670,
+      "exportTriangles": 3670,
+      "normalSource": "Rhino cached surface normals",
+      "meshPolicy": "Full source tessellation; original hard-edge vertex splits"
+    },
+    "User Layer 17": {
+      "objects": 1,
+      "sourceTriangles": 7716,
+      "exportTriangles": 7716,
+      "normalSource": "Rhino cached surface normals",
+      "meshPolicy": "Full source tessellation; original hard-edge vertex splits"
+    },
+    "User Layer 19": {
+      "objects": 1,
+      "sourceTriangles": 4618,
+      "exportTriangles": 4618,
+      "normalSource": "Rhino cached surface normals",
+      "meshPolicy": "Full source tessellation; original hard-edge vertex splits"
+    },
+    "User Layer 22": {
+      "objects": 1,
+      "sourceTriangles": 3398,
+      "exportTriangles": 3398,
+      "normalSource": "Rhino cached surface normals",
+      "meshPolicy": "Full source tessellation; original hard-edge vertex splits"
+    },
+    "User Layer 24": {
+      "objects": 1,
+      "sourceTriangles": 706,
+      "exportTriangles": 706,
+      "normalSource": "Rhino cached surface normals",
+      "meshPolicy": "Full source tessellation; original hard-edge vertex splits"
+    },
+    "User Layer 26": {
+      "objects": 1,
+      "sourceTriangles": 526,
+      "exportTriangles": 526,
+      "normalSource": "Rhino cached surface normals",
+      "meshPolicy": "Full source tessellation; original hard-edge vertex splits"
+    },
+    "User Layer 32": {
+      "objects": 1,
+      "sourceTriangles": 6880,
+      "exportTriangles": 6880,
+      "normalSource": "Rhino cached surface normals",
+      "meshPolicy": "Full source tessellation; original hard-edge vertex splits"
+    },
+    "User Layer 03": {
+      "objects": 1010,
+      "sourceTriangles": 4240032,
+      "exportTriangles": 50534
+    },
+    "User Layer 01": {
+      "objects": 1,
+      "sourceTriangles": 2441466,
+      "exportTriangles": 26000
+    }
+  },
+  "assemblies": {
+    "face": {
+      "vertices": 40305,
+      "triangles": 76534,
+      "bounds": {
+        "min": [
+          -1.4272079467773438,
+          -0.23444972932338715,
+          -0.24032200872898102
+        ],
+        "max": [
+          1.0887094736099243,
+          2.5,
+          0.48532724380493164
+        ]
+      }
+    },
+    "feather": {
+      "vertices": 21497,
+      "triangles": 41966,
+      "bounds": {
+        "min": [
+          -2.3221001625061035,
+          -2.2530405521392822,
+          -0.48532724380493164
+        ],
+        "max": [
+          1.0995452404022217,
+          1.8544057607650757,
+          -0.060291826725006104
+        ]
+      }
+    },
+    "botanical": {
+      "vertices": 57743,
+      "triangles": 89048,
+      "bounds": {
+        "min": [
+          -0.5229798555374146,
+          -2.5,
+          -0.48518139123916626
+        ],
+        "max": [
+          2.3221001625061035,
+          1.8823243379592896,
+          -0.02750110626220703
+        ]
+      }
+    },
+    "gems": {
+      "vertices": 163808,
+      "triangles": 56320,
+      "bounds": {
+        "min": [
+          -2.1820318698883057,
+          -2.40139102935791,
+          -0.4231649935245514
+        ],
+        "max": [
+          2.284386396408081,
+          2.438016891479492,
+          0.4305318295955658
+        ]
+      }
+    }
+  },
+  "eyes": {
+    "material": "black-onyx-eyes",
+    "geometryUnchanged": true,
+    "left": {
+      "triangles": 35,
+      "center": [
+        -0.5988174080848694,
+        1.2777296304702759,
+        0.13471414148807526
+      ],
+      "bounds": {
+        "min": [
+          -0.7186500430107117,
+          1.1903451681137085,
+          0.10522684454917908
+        ],
+        "max": [
+          -0.4697832465171814,
+          1.352744460105896,
+          0.16824008524417877
+        ]
+      }
+    },
+    "right": {
+      "triangles": 27,
+      "center": [
+        0.30873292684555054,
+        1.274488925933838,
+        0.1369318664073944
+      ],
+      "bounds": {
+        "min": [
+          0.1896851807832718,
+          1.190975546836853,
+          0.10710718482732773
+        ],
+        "max": [
+          0.4162704348564148,
+          1.3531438112258911,
+          0.16990125179290771
+        ]
+      }
+    }
+  },
+  "bytes": 8727252,
+  "triangles": 263868
+}
