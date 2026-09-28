@@ -1,0 +1,161 @@
+---
+import finalOnBody from '../assets/editorial/final/final-panther-bloom-male-detail.png';
+import finalDesign from '../assets/final-designs/panther-bloom.png';
+import cadLayer from '../assets/generated/panther-bloom-cad.png';
+import sketchLayer from '../assets/generated/panther-bloom-sketch.png';
+---
+
+<figure class="panther-transformation" aria-labelledby="panther-transformation-title">
+  <div class="panther-stage" aria-hidden="true">
+    <div class="panther-layer panther-photo">
+      <img src={finalOnBody.src} alt="" />
+    </div>
+    <div class="panther-layer panther-render">
+      <img src={finalDesign.src} alt="" />
+    </div>
+    <div class="panther-layer panther-cad">
+      <img src={cadLayer.src} alt="" />
+    </div>
+    <div class="panther-layer panther-sketch">
+      <img src={sketchLayer.src} alt="" />
+    </div>
+  </div>
+
+  <figcaption>
+    <span id="panther-transformation-title">Panther Bloom Brooch</span>
+    <strong>FINAL → CAD → CONCEPT</strong>
+  </figcaption>
+  <p class="panther-source">Continuous transformation</p>
+</figure>
+
+<style>
+  .panther-transformation {
+    position: relative;
+    aspect-ratio: 1;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid rgba(193, 232, 244, .22);
+    border-radius: .45rem;
+    background: #070908;
+    box-shadow: inset 0 0 8rem rgba(0, 0, 0, .52), 0 1.5rem 5rem rgba(0, 0, 0, .24);
+    isolation: isolate;
+  }
+
+  .panther-transformation::before,
+  .panther-transformation::after {
+    position: absolute;
+    z-index: 4;
+    content: '';
+    pointer-events: none;
+  }
+
+  .panther-transformation::before {
+    inset: 0;
+    opacity: .25;
+    background-image: linear-gradient(rgba(169, 218, 231, .12) 1px, transparent 1px), linear-gradient(90deg, rgba(169, 218, 231, .12) 1px, transparent 1px);
+    background-size: 3rem 3rem;
+    mask-image: linear-gradient(135deg, black 5%, transparent 74%);
+  }
+
+  .panther-transformation::after {
+    inset: 0;
+    background: linear-gradient(180deg, rgba(7, 9, 8, .04) 28%, rgba(7, 9, 8, .08) 72%, rgba(7, 9, 8, .6));
+  }
+
+  .panther-stage,
+  .panther-layer,
+  .panther-layer img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .panther-stage { position: absolute; inset: 0; overflow: hidden; }
+
+  .panther-layer {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    transform-origin: center;
+    will-change: opacity, transform;
+  }
+
+  .panther-layer img { display: block; object-fit: contain; }
+
+  .panther-photo { z-index: 1; animation: photo-cycle 16s cubic-bezier(.55, 0, .2, 1) infinite; }
+  .panther-photo img { object-fit: cover; object-position: 52% 58%; transform: scale(1.18); filter: saturate(1.08) contrast(1.04); }
+  .panther-render { z-index: 2; padding: 6%; animation: render-cycle 16s cubic-bezier(.55, 0, .2, 1) infinite; }
+  .panther-render img { filter: drop-shadow(0 1.2rem 1.75rem rgba(0, 0, 0, .58)); }
+  .panther-cad { z-index: 3; padding: 5%; mix-blend-mode: screen; animation: cad-cycle 16s cubic-bezier(.55, 0, .2, 1) infinite; }
+  .panther-sketch { z-index: 3; padding: 5%; mix-blend-mode: screen; animation: sketch-cycle 16s cubic-bezier(.55, 0, .2, 1) infinite; }
+
+  figcaption,
+  .panther-source {
+    position: absolute;
+    z-index: 5;
+    margin: 0;
+    font: 600 clamp(.5rem, 1.05vw, .64rem)/1.3 var(--font-mono);
+    letter-spacing: .11em;
+    text-transform: uppercase;
+  }
+
+  figcaption {
+    top: 1.25rem;
+    left: 1.25rem;
+    display: grid;
+    gap: .25rem;
+    padding: .56rem .7rem;
+    border: 1px solid rgba(193, 232, 244, .2);
+    background: rgba(5, 7, 7, .78);
+    backdrop-filter: blur(8px);
+  }
+
+  figcaption span { color: var(--muted); }
+  figcaption strong { color: var(--blue-pale); font-weight: 600; }
+
+  .panther-source {
+    right: 1.25rem;
+    bottom: 1.25rem;
+    color: rgba(235, 202, 104, .85);
+  }
+
+  @keyframes photo-cycle {
+    0%, 17% { opacity: 1; transform: scale(1.06); }
+    24%, 79% { opacity: 0; transform: scale(1.16); }
+    90%, 100% { opacity: 1; transform: scale(1.06); }
+  }
+
+  @keyframes render-cycle {
+    0%, 15% { opacity: 0; transform: scale(.76) translateY(5%); }
+    25%, 42% { opacity: 1; transform: scale(1) translateY(0); }
+    60% { opacity: .72; transform: scale(.96) translate(-1.5%, 1%); }
+    75%, 100% { opacity: 0; transform: scale(.78) translateY(-4%); }
+  }
+
+  @keyframes cad-cycle {
+    0%, 31% { opacity: 0; transform: scale(.68) translate(0, 3%); }
+    42%, 62% { opacity: .9; transform: scale(.94) translate(-7%, 2%) rotate(-3deg); }
+    73% { opacity: .45; transform: scale(.88) translate(-1%, 0) rotate(0); }
+    84%, 100% { opacity: 0; transform: scale(.72) translate(0, 3%); }
+  }
+
+  @keyframes sketch-cycle {
+    0%, 35% { opacity: 0; transform: scale(.68) translate(0, -3%); }
+    46%, 62% { opacity: .96; transform: scale(.94) translate(7%, -3%) rotate(3deg); }
+    73% { opacity: .38; transform: scale(.88) translate(1%, 0) rotate(0); }
+    84%, 100% { opacity: 0; transform: scale(.72) translate(0, -3%); }
+  }
+
+  @media (max-width: 779px) {
+    figcaption { top: .8rem; left: .8rem; padding: .46rem .55rem; }
+    .panther-source { right: .8rem; bottom: .8rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .panther-layer { animation: none; }
+    .panther-photo,
+    .panther-cad,
+    .panther-sketch { display: none; }
+    .panther-render { opacity: 1; transform: none; }
+  }
+</style>
