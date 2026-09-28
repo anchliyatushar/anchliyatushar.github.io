@@ -1,5 +1,3 @@
-import base64
-from io import BytesIO
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont, ImageOps
@@ -97,18 +95,7 @@ def make_brand_assets():
     logo.save(PUBLIC / "favicon.png", optimize=True)
     logo.save(PUBLIC / "favicon.ico", sizes=[(16, 16), (32, 32), (48, 48)])
 
-    # Keep the legacy SVG route self-contained. Referencing an external PNG in an
-    # SVG renders blank in Finder/Preview and a few browser favicon contexts.
-    svg_image = BytesIO()
-    mark_canvas.save(svg_image, format="PNG", optimize=True)
-    encoded_mark = base64.b64encode(svg_image.getvalue()).decode("ascii")
-    (PUBLIC / "favicon.svg").write_text(
-        "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\" role=\"img\" aria-labelledby=\"title\">\n"
-        "  <title id=\"title\">Disha Jain logo</title>\n"
-        f"  <image href=\"data:image/png;base64,{encoded_mark}\" width=\"512\" height=\"512\" />\n"
-        "</svg>\n",
-        encoding="utf-8",
-    )
+    # favicon.svg preserves the supplied DJ geometry and is maintained separately.
 
 
 if __name__ == "__main__":
