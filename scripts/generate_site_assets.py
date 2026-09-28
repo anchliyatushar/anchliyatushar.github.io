@@ -6,6 +6,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
 SOURCE = ROOT / "src/assets/editorial/final/final-stone-choker-worn.png"
+BRAND_SOURCE = ROOT / "src/assets/brand/dj-linework-options/dj-linework-03-diamond-clean.png"
 
 BG = "#070908"
 TEXT = "#EFECE2"
@@ -60,30 +61,39 @@ def make_social_card():
     canvas.convert("RGB").save(PUBLIC / "og-default.jpg", quality=90, optimize=True, progressive=True)
 
 
-def make_app_icon():
-    icon = Image.new("RGB", (512, 512), BG)
-    draw = ImageDraw.Draw(icon)
-    draw.rounded_rectangle((8, 8, 504, 504), radius=112, fill=BG)
-    # A deliberately simple DJ monogram retains its identity at 16px.
-    draw.polygon(
-        [(104, 112), (210, 112), (280, 148), (305, 207), (280, 266), (210, 302), (104, 302)],
-        fill=GOLD,
-    )
-    draw.polygon(
-        [(160, 166), (202, 166), (236, 187), (247, 207), (236, 227), (202, 248), (160, 248)],
-        fill=BG,
-    )
-    draw.line((387, 124, 387, 324), fill=GOLD_BRIGHT, width=48)
-    draw.arc((225, 252, 411, 431), start=0, end=160, fill=GOLD_BRIGHT, width=48)
-    draw.polygon([(364, 69), (390, 95), (364, 121), (338, 95)], fill=BLUE)
-    draw.line((364, 69, 390, 95, 364, 121, 338, 95, 364, 69), fill=GOLD_BRIGHT, width=9, joint="curve")
-    icon.save(PUBLIC / "apple-touch-icon.png", optimize=True)
-    icon.save(PUBLIC / "favicon.ico", sizes=[(16, 16), (32, 32), (48, 48)])
+def make_brand_assets():
+    """Export the approved linework mark for the site and device icons."""
+    with Image.open(BRAND_SOURCE) as source:
+        logo = ImageOps.exif_transpose(source).convert("RGB")
+
+    # Keep the approved source as the canonical browser-ready PNG.
+    logo.save(PUBLIC / "disha-jain-logo.png", optimize=True)
+
+    # A square crop preserves the full DJ monogram at a legible size in the header and app icon.
+    mark = logo.crop((140, 120, 900, 880))
+    mark_canvas = Image.new("RGB", (512, 512), BG)
+    mark_canvas.paste(ImageOps.contain(mark, (440, 440), Image.Resampling.LANCZOS), (36, 36))
+    mark_canvas.save(PUBLIC / "brand-mark.png", optimize=True)
+    mark_canvas.save(PUBLIC / "apple-touch-icon.png", optimize=True)
+
+    # Browser tabs need a distilled version of the logo: its central princess-cut diamond.
+    # The full linework mark is too fine to remain legible at 16px.
+    tab_icon = Image.new("RGB", (512, 512), BG)
+    tab_draw = ImageDraw.Draw(tab_icon)
+    tab_draw.polygon([(256, 56), (456, 256), (256, 456), (56, 256)], fill=GOLD)
+    tab_draw.polygon([(256, 132), (380, 256), (256, 380), (132, 256)], fill=BG)
+    tab_draw.line((256, 56, 256, 456), fill=GOLD_BRIGHT, width=12)
+    tab_draw.line((56, 256, 456, 256), fill=GOLD_BRIGHT, width=12)
+    tab_icon.save(PUBLIC / "favicon.png", optimize=True)
+    tab_icon.save(PUBLIC / "favicon.ico", sizes=[(16, 16), (32, 32), (48, 48)])
 
 
 if __name__ == "__main__":
     make_social_card()
-    make_app_icon()
+    make_brand_assets()
     print(PUBLIC / "og-default.jpg")
+    print(PUBLIC / "disha-jain-logo.png")
+    print(PUBLIC / "brand-mark.png")
+    print(PUBLIC / "favicon.png")
     print(PUBLIC / "apple-touch-icon.png")
     print(PUBLIC / "favicon.ico")
