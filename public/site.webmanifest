@@ -8,10 +8,10 @@
   "theme_color": "#070908",
   "icons": [
     {
-      "src": "/brand-mark.png",
+      "src": "/disha-jain-logo.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ]
 }

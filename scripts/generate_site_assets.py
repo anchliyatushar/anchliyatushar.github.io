@@ -89,16 +89,11 @@ def make_brand_assets():
     apple_icon.paste(mark_canvas, mask=mark_canvas.getchannel("A"))
     apple_icon.save(PUBLIC / "apple-touch-icon.png", optimize=True)
 
-    # Browser tabs need a distilled version of the logo: its central princess-cut diamond.
-    # The full linework mark is too fine to remain legible at 16px.
-    tab_icon = Image.new("RGB", (512, 512), BG)
-    tab_draw = ImageDraw.Draw(tab_icon)
-    tab_draw.polygon([(256, 56), (456, 256), (256, 456), (56, 256)], fill=GOLD)
-    tab_draw.polygon([(256, 132), (380, 256), (256, 380), (132, 256)], fill=BG)
-    tab_draw.line((256, 56, 256, 456), fill=GOLD_BRIGHT, width=12)
-    tab_draw.line((56, 256, 456, 256), fill=GOLD_BRIGHT, width=12)
-    tab_icon.save(PUBLIC / "favicon.png", optimize=True)
-    tab_icon.save(PUBLIC / "favicon.ico", sizes=[(16, 16), (32, 32), (48, 48)])
+    # Keep every browser-icon fallback faithful to the approved Disha Jain logo.
+    # The document head links directly to disha-jain-logo.png; these files cover
+    # browsers that still request /favicon.png, /favicon.ico, or /favicon.svg.
+    logo.save(PUBLIC / "favicon.png", optimize=True)
+    logo.save(PUBLIC / "favicon.ico", sizes=[(16, 16), (32, 32), (48, 48)])
 
 
 if __name__ == "__main__":
