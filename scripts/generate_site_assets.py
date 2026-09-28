@@ -33,6 +33,15 @@ def crop_cover(image, size, focus=(0.5, 0.34)):
     return resized.crop((left, top, left + width, top + height))
 
 
+def extract_linework(image):
+    """Convert the approved black-backed PNG into an anti-aliased transparent mark."""
+    linework = image.convert("RGBA")
+    luminance = image.convert("L")
+    alpha = luminance.point(lambda value: 0 if value < 8 else min(255, (value - 8) * 4))
+    linework.putalpha(alpha)
+    return linework
+
+
 def make_social_card():
     canvas = Image.new("RGB", (1200, 630), BG)
     with Image.open(SOURCE) as source:
@@ -64,17 +73,21 @@ def make_social_card():
 def make_brand_assets():
     """Export the approved linework mark for the site and device icons."""
     with Image.open(BRAND_SOURCE) as source:
-        logo = ImageOps.exif_transpose(source).convert("RGB")
+        logo = extract_linework(ImageOps.exif_transpose(source))
 
-    # Keep the approved source as the canonical browser-ready PNG.
+    # Keep the approved source as a true transparent, browser-ready PNG.
     logo.save(PUBLIC / "disha-jain-logo.png", optimize=True)
 
-    # A square crop preserves the full DJ monogram at a legible size in the header and app icon.
+    # A square crop preserves the full DJ monogram at a legible size in the header.
     mark = logo.crop((140, 120, 900, 880))
-    mark_canvas = Image.new("RGB", (512, 512), BG)
-    mark_canvas.paste(ImageOps.contain(mark, (440, 440), Image.Resampling.LANCZOS), (36, 36))
+    mark_canvas = Image.new("RGBA", (512, 512), (0, 0, 0, 0))
+    mark_canvas.alpha_composite(ImageOps.contain(mark, (440, 440), Image.Resampling.LANCZOS), (36, 36))
     mark_canvas.save(PUBLIC / "brand-mark.png", optimize=True)
-    mark_canvas.save(PUBLIC / "apple-touch-icon.png", optimize=True)
+
+    # Installed app icons use the same logo on a deliberate dark ground.
+    apple_icon = Image.new("RGB", (512, 512), BG)
+    apple_icon.paste(mark_canvas, mask=mark_canvas.getchannel("A"))
+    apple_icon.save(PUBLIC / "apple-touch-icon.png", optimize=True)
 
     # Browser tabs need a distilled version of the logo: its central princess-cut diamond.
     # The full linework mark is too fine to remain legible at 16px.
