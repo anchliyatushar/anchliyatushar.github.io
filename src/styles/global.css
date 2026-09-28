@@ -26,6 +26,11 @@
   --max: 72rem;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --header-h: 4.25rem;
+  color-scheme: dark;
+  accent-color: var(--gold);
+  caret-color: var(--gold-bright);
+  scrollbar-color: var(--gold) var(--bg-elevated);
+  scrollbar-width: thin;
 }
 
 *,
@@ -36,6 +41,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: rgba(216, 178, 81, 0.2);
 }
 
 body {
@@ -54,6 +60,32 @@ body {
 
 ::selection {
   color: #0b0b08;
+  background: var(--gold-bright);
+}
+
+::-moz-selection {
+  color: #0b0b08;
+  background: var(--gold-bright);
+}
+
+/* Chromium and Safari use this family; Firefox uses scrollbar-color above. */
+::-webkit-scrollbar {
+  width: 0.65rem;
+  height: 0.65rem;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-elevated);
+}
+
+::-webkit-scrollbar-thumb {
+  min-height: 2.75rem;
+  border: 2px solid var(--bg-elevated);
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+}
+
+::-webkit-scrollbar-thumb:hover {
   background: var(--gold-bright);
 }
 

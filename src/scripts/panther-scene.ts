@@ -139,7 +139,6 @@ export function mountPantherStudy(container: HTMLElement) {
   let visible = true;
   let seconds = reduced.matches ? STATIC_TIME : 0;
   let previous = 0;
-  let frameId = 0;
   let currentChapter = '';
   // Local-only, deterministic frames for visual QA. Not exposed on the deployed site.
   const qaValue = qaParams?.get('panther-time') ?? null;
@@ -165,19 +164,22 @@ export function mountPantherStudy(container: HTMLElement) {
 
   function frame(now: number) {
     if (disposed) return;
+    if (!playing || !visible || document.hidden || qaTime !== null) {
+      renderer.setAnimationLoop(null);
+      previous = 0;
+      return;
+    }
     if (previous) seconds += Math.min((now - previous) / 1000, .05);
     previous = now;
     paint(qaTime ?? seconds % DURATION);
-    if (playing && visible && !document.hidden && qaTime === null) frameId = requestAnimationFrame(frame);
-    else previous = 0;
   }
 
   function resumeIfVisible() {
-    cancelAnimationFrame(frameId);
+    renderer.setAnimationLoop(null);
     previous = 0;
     if (!ready || disposed) return;
     paint(qaTime ?? seconds % DURATION);
-    if (playing && visible && !document.hidden && qaTime === null) frameId = requestAnimationFrame(frame);
+    if (playing && visible && !document.hidden && qaTime === null) renderer.setAnimationLoop(frame);
   }
   function updateButton() {
     button.dataset.paused = String(!playing);
@@ -188,6 +190,12 @@ export function mountPantherStudy(container: HTMLElement) {
   button.addEventListener('click', toggle);
   reduced.addEventListener('change', motionChanged);
   document.addEventListener('visibilitychange', resumeIfVisible);
+  window.addEventListener('pageshow', resumeIfVisible);
+  window.addEventListener('focus', resumeIfVisible);
+  const contextLost = (event: Event) => { event.preventDefault(); renderer.setAnimationLoop(null); };
+  const contextRestored = () => resumeIfVisible();
+  renderer.domElement.addEventListener('webglcontextlost', contextLost);
+  renderer.domElement.addEventListener('webglcontextrestored', contextRestored);
   const observer = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; resumeIfVisible(); }, { threshold: .05 });
   observer.observe(container);
   const resize = new ResizeObserver(() => {
@@ -203,12 +211,16 @@ export function mountPantherStudy(container: HTMLElement) {
   function dispose() {
     if (disposed) return;
     disposed = true;
-    cancelAnimationFrame(frameId);
+    renderer.setAnimationLoop(null);
     observer.disconnect();
     resize.disconnect();
     button.removeEventListener('click', toggle);
     reduced.removeEventListener('change', motionChanged);
     document.removeEventListener('visibilitychange', resumeIfVisible);
+    window.removeEventListener('pageshow', resumeIfVisible);
+    window.removeEventListener('focus', resumeIfVisible);
+    renderer.domElement.removeEventListener('webglcontextlost', contextLost);
+    renderer.domElement.removeEventListener('webglcontextrestored', contextRestored);
     document.removeEventListener('astro:before-swap', dispose);
     edgeGeometries.forEach((geometry) => geometry.dispose());
     model?.traverse((node) => { if (node instanceof THREE.Mesh) node.geometry.dispose(); });
@@ -262,14 +274,15 @@ export function mountPantherStudy(container: HTMLElement) {
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
     paint(qaTime ?? seconds, false);
-    await renderer.compileAsync(scene, camera);
-    if (disposed) return;
+    // iOS WebKit can delay or decline KHR_parallel_shader_compile. Never make
+    // autoplay depend on that optional warm-up step.
     ready = true;
     host.removeAttribute('aria-hidden');
     container.dataset.ready = 'true';
     button.disabled = false;
     updateButton();
     resumeIfVisible();
+    void renderer.compileAsync(scene, camera).catch(() => undefined);
     if (import.meta.env.DEV && qaParams?.has('panther-poster')) {
       // Keep the loading image in sync with geometry, lighting and framing.
       const download = document.createElement('a');
